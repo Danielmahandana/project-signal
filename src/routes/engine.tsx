@@ -6,13 +6,13 @@ import { M } from "@/components/site/Math";
 export const Route = createFileRoute("/engine")({
   head: () => ({
     meta: [
-      { title: "The Cognitive Engine — Cognitive Engine Research" },
+      { title: "The Cognitive Engine — Project Signal" },
       {
         name: "description",
         content:
           "From skills to capabilities: three occupation-independent instruments — Pattern, Signal and Scenario — and the observations they produce.",
       },
-      { property: "og:title", content: "The Cognitive Engine — Cognitive Engine Research" },
+      { property: "og:title", content: "The Cognitive Engine — Project Signal" },
       {
         property: "og:description",
         content: "Pattern, Signal and Scenario: three instruments for observing capability.",
@@ -202,7 +202,8 @@ instrument_id`}</Ascii>
         <p>
           A fast incorrect answer and a slow correct answer may represent very different behaviours.
           The question is empirical: does response time provide additional predictive or diagnostic
-          information once accuracy and task difficulty are controlled for? <StatusTag kind="unknown" />
+          information once accuracy and task difficulty are controlled for?{" "}
+          <StatusTag kind="unknown" />
         </p>
       </Section>
 

@@ -1,31 +1,39 @@
 import { Link } from "@tanstack/react-router";
 
 const nav = [
-  { to: "/", label: "Overview" },
-  { to: "/research", label: "Research" },
-  { to: "/engine", label: "Engine" },
-  { to: "/models", label: "Models" },
-  { to: "/roadmap", label: "Roadmap" },
-  { to: "/status", label: "Status" },
+  { to: "/", number: "00", label: "Overview" },
+  { to: "/research", number: "01", label: "The research" },
+  { to: "/engine", number: "02", label: "Cognitive engine" },
+  { to: "/models", number: "03", label: "Models & mathematics" },
+  { to: "/roadmap", number: "04", label: "Roadmap" },
+  { to: "/status", number: "05", label: "Status & unknowns" },
 ] as const;
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-4">
-        <Link to="/" className="text-[0.8rem] font-semibold uppercase tracking-[0.22em]">
-          Systems Engineering Team at Darkroom
-        </Link>
-        <nav className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted-foreground">
+    <header className="sticky top-0 z-40 bg-background/90 backdrop-blur">
+      <div className="mx-auto max-w-6xl px-4 py-3 sm:px-5 md:px-8 md:py-4">
+        <div className="flex items-baseline justify-between gap-4">
+          <Link to="/" className="font-mono text-[0.68rem] font-medium text-foreground">
+            /project-signal
+          </Link>
+          <p className="max-w-[48%] truncate text-[0.58rem] text-muted-foreground sm:max-w-none sm:text-[0.6rem]">
+            Daniel · Narvin · Thabang
+          </p>
+        </div>
+        <nav className="relative mt-3 flex min-w-0 gap-3 overflow-x-auto pb-1 text-[0.64rem] text-muted-foreground before:absolute before:left-1 before:right-1 before:top-[0.34rem] before:h-px before:bg-border sm:gap-5 sm:text-[0.68rem]">
           {nav.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
-              activeProps={{ className: "text-foreground font-semibold" }}
-              className="transition-colors hover:text-foreground"
+              activeProps={{
+                className: "text-foreground font-semibold before:scale-100 before:bg-signal-red",
+              }}
+              className="group relative z-10 flex shrink-0 flex-col gap-1 bg-background/90 pr-1 transition-colors before:h-2 before:w-2 before:scale-75 before:rounded-full before:bg-border before:transition-transform before:content-[''] hover:text-foreground hover:before:scale-100"
             >
-              {n.label}
+              <span className="font-mono text-[0.58rem] text-muted-foreground/70">{n.number}</span>
+              <span>{n.label}</span>
             </Link>
           ))}
         </nav>
@@ -38,8 +46,8 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border py-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-        <p className="uppercase tracking-[0.18em]">Cognitive Engine Research</p>
-        <p>Systems Engineering Team at Darkroom — a research programme, not a product claim.</p>
+        <p className="uppercase tracking-[0.18em]">Project Signal</p>
+        <p>Systems Engineering Team at Darkroom · Daniel · Narvin · Thabang</p>
       </div>
     </footer>
   );

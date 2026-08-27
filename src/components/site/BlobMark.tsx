@@ -1,6 +1,22 @@
+import { useEffect, useState } from "react";
+
 export function BlobMark({ className = "" }: { className?: string }) {
+  const [signal, setSignal] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setSignal(window.scrollY < 120);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <svg viewBox="0 0 320 220" className={className} role="img" aria-label="Cognitive engine mark">
+    <svg
+      viewBox="0 0 320 220"
+      className={`liquid-mark ${className}`}
+      role="img"
+      aria-label="Project Signal"
+    >
       <path
         d="M92 66c14-30 52-42 84-30 26 10 30 30 52 38 24 9 44 22 44 48 0 34-30 58-66 62-30 3-44-12-70-8-28 4-52-6-62-30-11-27 4-52 18-80z"
         fill="currentColor"
@@ -25,6 +41,14 @@ export function BlobMark({ className = "" }: { className?: string }) {
       <ellipse cx="72" cy="132" rx="30" ry="27" className="fill-signal-red">
         <animate attributeName="rx" dur="10s" repeatCount="indefinite" values="30;34;30" />
       </ellipse>
+      <text
+        x="160"
+        y="116"
+        textAnchor="middle"
+        className={`liquid-word ${signal ? "liquid-word-visible" : ""}`}
+      >
+        project signal
+      </text>
     </svg>
   );
 }

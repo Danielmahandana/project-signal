@@ -16,7 +16,9 @@ function sd(estimate: number, n: number) {
 
 export function AdaptiveSelector() {
   const [dims, setDims] = useState(initial);
-  const target = dims.reduce((best, d) => (sd(d.estimate, d.n) > sd(best.estimate, best.n) ? d : best));
+  const target = dims.reduce((best, d) =>
+    sd(d.estimate, d.n) > sd(best.estimate, best.n) ? d : best,
+  );
 
   return (
     <div className="not-prose rounded-xl border border-border bg-card p-5 md:p-6">
@@ -45,7 +47,10 @@ export function AdaptiveSelector() {
           const s = sd(d.estimate, d.n);
           const isTarget = d.name === target.name;
           return (
-            <div key={d.name} className="grid grid-cols-[6rem_1fr_5.5rem] items-center gap-3">
+            <div
+              key={d.name}
+              className="grid min-w-0 grid-cols-[4.5rem_minmax(0,1fr)_4.3rem] items-center gap-2 sm:grid-cols-[6rem_minmax(0,1fr)_5.5rem] sm:gap-3"
+            >
               <span
                 className={`text-xs font-semibold ${isTarget ? "text-signal-red" : "text-muted-foreground"}`}
               >

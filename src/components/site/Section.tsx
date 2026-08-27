@@ -15,14 +15,16 @@ export function Section({
   children?: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 border-t border-border py-16 md:py-24">
+    <section id={id} className="scroll-mt-24 border-t border-border py-12 sm:py-16 md:py-24">
       <Reveal>
-        <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-[10rem_1fr]">
+        <div className="mx-auto grid max-w-5xl gap-5 px-4 sm:px-6 md:grid-cols-[10rem_1fr] md:gap-10">
           <div className="eyebrow pt-2">{number}</div>
           <div>
-            <h2 className="text-2xl font-semibold md:text-[2rem]">{title}</h2>
+            <h2 className="text-[1.4rem] font-semibold leading-tight sm:text-2xl md:text-[2rem]">
+              {title}
+            </h2>
             {lede ? <p className="mt-3 max-w-2xl text-lg text-muted-foreground">{lede}</p> : null}
-            <div className="mt-8 max-w-2xl space-y-5 text-[0.975rem] leading-7 text-foreground/85">
+            <div className="mt-6 max-w-2xl space-y-5 text-[0.92rem] leading-7 text-foreground/85 sm:mt-8">
               {children}
             </div>
           </div>
@@ -34,7 +36,7 @@ export function Section({
 
 export function Ascii({ children }: { children: string }) {
   return (
-    <pre className="ascii rounded-lg border border-border bg-surface p-5 text-muted-foreground">
+    <pre className="ascii max-w-full overflow-x-auto rounded-lg border border-border bg-surface p-4 text-muted-foreground sm:p-5">
       {children}
     </pre>
   );
@@ -66,10 +68,14 @@ export function PageHeader({
   lede: string;
 }) {
   return (
-    <header className="mx-auto max-w-5xl px-6 pb-4 pt-20 md:pt-28">
+    <header className="mx-auto max-w-5xl px-4 pb-4 pt-12 sm:px-6 sm:pt-16 md:pt-28">
       <p className="eyebrow">{eyebrow}</p>
-      <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-[1.08] md:text-6xl">{title}</h1>
-      <p className="mt-6 max-w-2xl text-lg text-muted-foreground">{lede}</p>
+      <h1 className="mt-4 max-w-3xl text-3xl font-semibold leading-[1.08] sm:text-4xl md:text-6xl">
+        {title}
+      </h1>
+      <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:mt-6 sm:text-lg">
+        {lede}
+      </p>
     </header>
   );
 }

@@ -5,13 +5,13 @@ import { NextPage } from "@/components/site/SiteChrome";
 export const Route = createFileRoute("/research")({
   head: () => ({
     meta: [
-      { title: "The Research — Cognitive Engine Research" },
+      { title: "The Research — Project Signal" },
       {
         name: "description",
         content:
           "Can we build a better representation of what a person can do? The research question and the hypothesis behind combining reported and observed evidence.",
       },
-      { property: "og:title", content: "The Research — Cognitive Engine Research" },
+      { property: "og:title", content: "The Research — Project Signal" },
       {
         property: "og:description",
         content: "The question and hypothesis behind reported versus observed evidence.",

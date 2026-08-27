@@ -8,13 +8,13 @@ import { NextPage } from "@/components/site/SiteChrome";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Cognitive Engine Research — Systems Engineering Team at Darkroom" },
+      { title: "Project Signal — Systems Engineering Team at Darkroom" },
       {
         name: "description",
         content:
           "A research programme into evidence, inference and human capability: combining what people have done with what they demonstrate.",
       },
-      { property: "og:title", content: "Cognitive Engine Research — Darkroom" },
+      { property: "og:title", content: "Project Signal — Darkroom" },
       {
         property: "og:description",
         content: "A research programme into evidence, inference and human capability.",
@@ -62,7 +62,7 @@ function Index() {
     <>
       <section className="mx-auto max-w-5xl px-6 pb-8 pt-16 text-center md:pt-24">
         <BlobMark className="mx-auto w-64 md:w-80" />
-        <p className="eyebrow mt-8">Cognitive Engine Research</p>
+        <p className="eyebrow mt-8">Project Signal</p>
         <h1 className="mx-auto mt-5 max-w-4xl text-3xl font-semibold leading-[1.15] md:text-5xl">
           We're exploring whether a person's capabilities can be understood more accurately by
           combining what they've done with what they demonstrate.

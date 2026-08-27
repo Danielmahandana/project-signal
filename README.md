@@ -45,15 +45,15 @@ Experience
 Projects
 Education
 Skills
-        │
-        ▼
-   Skill Extraction
-        │
-        ▼
-   Skill Mapping
-        │
-        ▼
- Capability Profile
+│
+▼
+Skill Extraction
+│
+▼
+Skill Mapping
+│
+▼
+Capability Profile
 
 This provides an initial representation.
 
@@ -204,11 +204,11 @@ Mixed evidence moves the estimate toward the centre.
 For example:
 
 SUCCESS
-   ↓
+↓
 0.50 → 0.55
 
 FAILURE
-   ↓
+↓
 0.55 → 0.495
 
 This gives us a functioning evidence-update mechanism.
@@ -329,26 +329,26 @@ Instead of remembering only an estimate, the system maintains a representation o
 Conceptually:
 
 OBSERVATION
-     │
-     ▼
- ┌─────────┐
- │ Success │
- └────┬────┘
-      │
-      ▼
-   α + 1
+│
+▼
+┌─────────┐
+│ Success │
+└────┬────┘
+│
+▼
+α + 1
 
 or:
 
 OBSERVATION
-     │
-     ▼
- ┌─────────┐
- │ Failure │
- └────┬────┘
-      │
-      ▼
-   β + 1
+│
+▼
+┌─────────┐
+│ Failure │
+└────┬────┘
+│
+▼
+β + 1
 
 As evidence accumulates:
 
@@ -494,27 +494,27 @@ Eventually, we want to investigate a different architecture.
 Instead of:
 
 Task 1
- ↓
+↓
 Task 2
- ↓
+↓
 Task 3
- ↓
+↓
 Task 4
 
 the engine could determine:
 
 Current evidence
-       │
-       ▼
+│
+▼
 What do we know?
-       │
-       ▼
+│
+▼
 What remains uncertain?
-       │
-       ▼
+│
+▼
 Which task would be most informative?
-       │
-       ▼
+│
+▼
 Next task
 
 This becomes the Adaptive Selector.
@@ -656,20 +656,20 @@ Where might this profile be relevant?
 These should not be collapsed into one model.
 
 COGNITIVE ENGINE
-        │
-        ▼
+│
+▼
 Evidence
-        │
-        ▼
+│
+▼
 CAPABILITY MODEL
-        │
-        ▼
+│
+▼
 SKILLS MAPPING
-        │
-        ▼
+│
+▼
 OCCUPATION MODEL
-        │
-        ▼
+│
+▼
 PATHWAY RECOMMENDATION
 
 20 — The Core Research Principle
@@ -850,7 +850,7 @@ Phase 05 — Validation
 Compare:
 
 CV-only profile
-       vs
+vs
 CV + Cognitive Evidence
 
 and investigate whether the additional evidence produces a more useful profile.
@@ -911,11 +911,11 @@ Rather than conventional stock imagery, I'd build the site around research diagr
 Illustration 01 — "From CV to capability"
 
 CV
- ↓
+↓
 Experience
- ↓
+↓
 Skills
- ↓
+↓
 Capabilities
 
 The CV fragments should visually separate into evidence units and recombine into a capability map.
@@ -926,11 +926,10 @@ Illustration 02 — "Observation → inference"
 ✓
 ✕
 ✓
-     ↓
-  MODEL
-     ↓
-  0.67
-     +
+↓
+MODEL
+↓
+0.67 +
 UNCERTAINTY
 
 Allow the user to add observations interactively and watch the posterior change.
@@ -1012,17 +1011,7 @@ The strongest narrative is therefore not "we built an AI that understands people
 
 It is:
 
-We are building instruments for measuring capability, and testing how much we can responsibly infer from the evidence they produce.  use the design ideas from the attached images ensure that the math is well formatted come up with great illustrations the site should be immersive and interactive and minimal design and also break it down to sections for ease of navigations and use opensans font accross and also on the header use the name of the team systems engineering team at darkroom
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ce431bb9-7b83-4d2c-b723-26965ed7ac71).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+We are building instruments for measuring capability, and testing how much we can responsibly infer from the evidence they produce. use the design ideas from the attached images ensure that the math is well formatted come up with great illustrations the site should be immersive and interactive and minimal design and also break it down to sections for ease of navigations and use opensans font accross and also on the header use the name of the team systems engineering team at darkroom
 
 ## Development
 

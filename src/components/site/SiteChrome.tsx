@@ -49,7 +49,7 @@ export function NextPage({ to, label }: { to: string; label: string }) {
   return (
     <div className="mx-auto max-w-5xl border-t border-border px-6 py-12">
       <Link
-        to={to}
+        to={to as never}
         className="group inline-flex items-baseline gap-3 text-lg font-semibold transition-colors hover:text-signal-blue"
       >
         <span className="eyebrow">Next</span>

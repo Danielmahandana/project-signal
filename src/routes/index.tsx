@@ -12,9 +12,9 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A research programme into evidence, inference and human capability: combining what people have done with what they demonstrate.",
+          "A research programme into evidence, inference and human capability: combining reported experience with observed capability.",
       },
-      { property: "og:title", content: "Project Signal — Darkroom" },
+      { property: "og:title", content: "Project Signal — Darkroom Systems Engineering" },
       {
         property: "og:description",
         content: "A research programme into evidence, inference and human capability.",
@@ -24,68 +24,70 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const chapters = [
+const researchEvolutionStages = [
   {
-    to: "/research",
-    n: "01–02",
-    title: "The Research",
-    body: "The question, the hypothesis, and why reported evidence alone is not enough.",
+    to: "/research#stage-01",
+    n: "Stage 01",
+    title: "Foundations: Reported vs Observed",
+    body: "Why CVs are not enough, reported evidence vs observed capability, and evidence flow extraction.",
+    badge: "Foundations",
   },
   {
-    to: "/engine",
-    n: "03 / 12–19",
-    title: "The Cognitive Engine",
-    body: "Skills versus capabilities, the three instruments, and what we actually observe.",
+    to: "/research#stage-02",
+    n: "Stage 02",
+    title: "Baseline 01: Exponential Moving Average",
+    body: "The initial scalar update model θ(t+1) = θ(t) + η(y - θ) and why single scores create false precision.",
+    badge: "Baseline EMA",
   },
   {
-    to: "/models",
-    n: "04–11",
-    title: "Models & Mathematics",
-    body: "The EMA baseline, its limits, and the Beta-Binomial route to uncertainty.",
+    to: "/research#stage-03",
+    n: "Stage 03",
+    title: "Baseline 02: Bayesian Capability Inference",
+    body: "Experiment PS-002B: Beta-Binomial conjugate update, neutral prior Beta(1,1), interactive density curve & mixed evidence.",
+    badge: "PS-002B Bayesian",
   },
   {
-    to: "/roadmap",
-    n: "15–16 / 23–25",
-    title: "Roadmap",
-    body: "From fixed tests to adaptive selection, and the loop the lab runs on.",
-  },
-  {
-    to: "/status",
-    n: "20–22 / 26",
-    title: "Status & Unknowns",
-    body: "What is built, what is observed, what is hypothesised, what is unknown.",
+    to: "/research#stage-04",
+    n: "Stage 04",
+    title: "Phase 03: Adaptive Task Selection",
+    body: "Using belief state to select next optimal tasks via maximum information gain.",
+    badge: "Phase 03 Adaptive",
   },
 ];
 
 function Index() {
   return (
     <>
-      <section className="mx-auto max-w-5xl px-6 pb-8 pt-16 text-center md:pt-24">
-        <BlobMark className="mx-auto w-64 md:w-80" />
-        <p className="eyebrow mt-8">Project Signal</p>
-        <h1 className="mx-auto mt-5 max-w-4xl text-3xl font-semibold leading-[1.15] md:text-5xl">
-          We're exploring whether a person's capabilities can be understood more accurately by
-          combining what they've done with what they demonstrate.
+      {/* Hero Section */}
+      <section className="relative mx-auto max-w-5xl px-6 pb-12 pt-16 text-center md:pt-24">
+        <BlobMark className="mx-auto w-72 md:w-96" />
+
+        <p className="eyebrow mt-8 tracking-[0.22em] text-signal-blue">Project Signal &middot; Research Evolution</p>
+        <h1 className="mx-auto mt-4 max-w-4xl text-3xl font-semibold leading-[1.12] md:text-5xl">
+          Understanding human capabilities by combining reported history with empirical inference.
         </h1>
-        <p className="mt-6 text-lg text-muted-foreground">
-          A research programme into evidence, inference and human capability.
+        <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed">
+          From static CV scores to dynamic Bayesian belief states: an open research programme into evidence, inference, and uncertainty.
         </p>
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+
+        {/* Action Buttons */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/research"
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-85"
+            className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90 shadow-sm"
           >
-            Start with the question
+            Explore Research Evolution →
           </Link>
           <Link
             to="/models"
-            className="rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-accent"
+            className="rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-semibold transition-all hover:bg-accent hover:border-signal-blue"
           >
-            See the mathematics →
+            Mathematical Models →
           </Link>
         </div>
       </section>
 
+      {/* Premise Section */}
       <Section number="Premise" title="A CV tells us what someone has done.">
         <p>It does not necessarily tell us what they can do.</p>
         <p>
@@ -96,58 +98,48 @@ function Index() {
         <EvidenceFlow />
       </Section>
 
-      <Section number="Reading" title="How to read this site" lede="Every claim carries a label.">
-        <div className="grid gap-3 sm:grid-cols-2">
-          {[
-            ["built", "What we have implemented."],
-            ["observed", "What experiments have shown."],
-            ["hypothesised", "What we think might work."],
-            ["unknown", "What still needs validation."],
-          ].map(([k, v]) => (
-            <div key={k} className="rounded-lg border border-border bg-card p-4">
-              <StatusTag kind={k as "built"} />
-              <p className="mt-2 text-sm text-muted-foreground">{v}</p>
-            </div>
-          ))}
-        </div>
-        <p>
-          We are not presenting a finished science. We are building instruments for measuring
-          capability, and testing how much we can responsibly infer from the evidence they produce.
+      {/* Evolution Journal Chapters */}
+      <Section number="Evolution" title="The Research Journey Across 4 Stages">
+        <p className="text-muted-foreground mb-6">
+          Explore how our capability inference models evolved over time:
         </p>
-      </Section>
-
-      <Section number="Contents" title="The programme, in five chapters">
-        <div className="not-prose divide-y divide-border border-y border-border">
-          {chapters.map((c) => (
-            <Reveal key={c.to}>
+        <div className="not-prose space-y-4">
+          {researchEvolutionStages.map((s) => (
+            <Reveal key={s.to}>
               <Link
-                to={c.to as never}
-                className="group grid gap-1 py-5 transition-colors hover:bg-accent/40 md:grid-cols-[7rem_1fr]"
+                to={s.to as never}
+                className="group grid gap-3 rounded-xl border border-border bg-card p-5 transition-all hover:border-signal-blue hover:bg-accent/30 sm:grid-cols-[8rem_1fr]"
               >
-                <span className="eyebrow pt-1">{c.n}</span>
-                <span>
-                  <span className="text-lg font-semibold group-hover:text-signal-blue">
-                    {c.title} →
+                <div className="flex flex-col gap-1">
+                  <span className="eyebrow">{s.n}</span>
+                  <span className="inline-block font-mono text-[0.6rem] font-semibold text-signal-blue">
+                    {s.badge}
                   </span>
-                  <span className="mt-1 block text-sm text-muted-foreground">{c.body}</span>
-                </span>
+                </div>
+                <div>
+                  <h3 className="text-base font-semibold text-foreground group-hover:text-signal-blue transition-colors">
+                    {s.title} →
+                  </h3>
+                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{s.body}</p>
+                </div>
               </Link>
             </Reveal>
           ))}
         </div>
       </Section>
 
+      {/* Core Principle */}
       <Section number="Principle" title="Measurement is not truth.">
         <Ascii>{`Evidence  ≠  Truth
 
-Evidence → Inference → Uncertainty`}</Ascii>
+Evidence ──► Inference ──► Uncertainty (σ)`}</Ascii>
         <p>
           A cognitive assessment produces observations. Observations inform estimates. Estimates
           have uncertainty. Uncertainty should remain visible.
         </p>
       </Section>
 
-      <NextPage to="/research" label="01 — The Research" />
+      <NextPage to="/research" label="01 — Research Journal Evolution" />
     </>
   );
 }

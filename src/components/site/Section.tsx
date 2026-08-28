@@ -6,19 +6,28 @@ export function Section({
   number,
   title,
   lede,
+  stageTag,
   children,
 }: {
   id?: string;
   number?: string;
   title: string;
   lede?: string;
+  stageTag?: string;
   children?: ReactNode;
 }) {
   return (
     <section id={id} className="scroll-mt-24 border-t border-border py-12 sm:py-16 md:py-24">
       <Reveal>
         <div className="mx-auto grid max-w-5xl gap-5 px-4 sm:px-6 md:grid-cols-[10rem_1fr] md:gap-10">
-          <div className="eyebrow pt-2">{number}</div>
+          <div className="eyebrow pt-2 flex flex-col gap-2">
+            <span>{number}</span>
+            {stageTag ? (
+              <span className="inline-block rounded-md border border-border bg-surface px-2 py-0.5 font-mono text-[0.6rem] font-semibold text-muted-foreground">
+                {stageTag}
+              </span>
+            ) : null}
+          </div>
           <div>
             <h2 className="text-[1.4rem] font-semibold leading-tight sm:text-2xl md:text-[2rem]">
               {title}
@@ -34,6 +43,28 @@ export function Section({
   );
 }
 
+export function SubSection({
+  id,
+  subNumber,
+  title,
+  children,
+}: {
+  id?: string;
+  subNumber: string;
+  title: string;
+  children?: ReactNode;
+}) {
+  return (
+    <div id={id} className="scroll-mt-24 my-8 border-l-2 border-border/80 pl-5 sm:pl-6 transition-all hover:border-signal-blue">
+      <div className="flex items-center gap-2">
+        <span className="font-mono text-xs font-semibold text-signal-blue">{subNumber}</span>
+        <h3 className="text-base font-semibold text-foreground sm:text-lg">{title}</h3>
+      </div>
+      <div className="mt-3 space-y-4 text-sm text-foreground/85 leading-relaxed">{children}</div>
+    </div>
+  );
+}
+
 export function Ascii({ children }: { children: string }) {
   return (
     <pre className="ascii max-w-full overflow-x-auto rounded-lg border border-border bg-surface p-4 text-muted-foreground sm:p-5">
@@ -44,10 +75,10 @@ export function Ascii({ children }: { children: string }) {
 
 export function StatusTag({ kind }: { kind: "built" | "observed" | "hypothesised" | "unknown" }) {
   const map = {
-    built: "border-signal-green/40 text-signal-green",
-    observed: "border-signal-blue/40 text-signal-blue",
-    hypothesised: "border-signal-amber/60 text-signal-amber",
-    unknown: "border-signal-red/40 text-signal-red",
+    built: "border-signal-green/40 text-signal-green bg-signal-green/5",
+    observed: "border-signal-blue/40 text-signal-blue bg-signal-blue/5",
+    hypothesised: "border-signal-amber/60 text-signal-amber bg-signal-amber/5",
+    unknown: "border-signal-red/40 text-signal-red bg-signal-red/5",
   } as const;
   return (
     <span

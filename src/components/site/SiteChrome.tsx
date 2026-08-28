@@ -16,18 +16,30 @@ export function SiteHeader() {
 
   useEffect(() => {
     let lastY = window.scrollY;
+    let ticking = false;
+
     const onScroll = () => {
-      const currentY = window.scrollY;
-      setIsScrolled(currentY > 40);
-      
-      // Auto-collapse header when scrolling down past 120px
-      if (currentY > 120 && currentY > lastY) {
-        setIsExpanded(false);
-      } else if (currentY < lastY && currentY - lastY < -20) {
-        // Expand when scrolling up meaningfully
-        setIsExpanded(true);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentY = window.scrollY;
+          setIsScrolled(currentY > 20);
+          
+          // Require significant scroll delta (> 40px) to collapse/expand to prevent flickering loop
+          if (currentY > 180) {
+            const delta = currentY - lastY;
+            if (delta > 40) {
+              setIsExpanded(false);
+            } else if (delta < -40) {
+              setIsExpanded(true);
+            }
+          } else {
+            setIsExpanded(true);
+          }
+          lastY = currentY;
+          ticking = false;
+        });
+        ticking = true;
       }
-      lastY = currentY;
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -36,7 +48,7 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-40 bg-background/95 backdrop-blur-md border-b border-border/60 transition-all duration-300 ${
+      className={`sticky top-0 z-40 bg-background/95 backdrop-blur-md border-b border-border/60 transition-shadow duration-300 ${
         isScrolled ? "shadow-xs" : ""
       }`}
     >
@@ -82,54 +94,58 @@ export function SiteHeader() {
           </div>
         </div>
 
-        {/* Collapsible Navigation Body */}
-        {isExpanded && (
-          <div className="mt-2 border-t border-border/40 pt-2.5 pb-2 transition-all animate-in fade-in slide-in-from-top-1 duration-200">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <nav className="relative flex min-w-0 gap-3 overflow-x-auto text-[0.68rem] text-muted-foreground sm:gap-5">
-                {nav.map((n) => (
-                  <Link
-                    key={n.to}
-                    to={n.to}
-                    activeOptions={{ exact: n.to === "/" }}
-                    activeProps={{
-                      className: "text-foreground font-semibold border-b-2 border-signal-blue pb-1",
-                    }}
-                    className="group relative z-10 flex shrink-0 items-center gap-1.5 py-0.5 transition-colors hover:text-foreground"
-                  >
-                    <span className="font-mono text-[0.58rem] text-muted-foreground/70">{n.number}</span>
-                    <span>{n.label}</span>
-                  </Link>
-                ))}
-              </nav>
+        {/* Collapsible Navigation Body with Smooth CSS Height Transition */}
+        <div
+          className={`transition-all duration-300 ease-in-out overflow-hidden ${
+            isExpanded
+              ? "max-h-48 opacity-100 mt-2 border-t border-border/40 pt-2.5 pb-2"
+              : "max-h-0 opacity-0 mt-0 pt-0 pb-0 border-transparent"
+          }`}
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <nav className="relative flex min-w-0 gap-3 overflow-x-auto text-[0.68rem] text-muted-foreground sm:gap-5">
+              {nav.map((n) => (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  activeOptions={{ exact: n.to === "/" }}
+                  activeProps={{
+                    className: "text-foreground font-semibold border-b-2 border-signal-blue pb-1",
+                  }}
+                  className="group relative z-10 flex shrink-0 items-center gap-1.5 py-0.5 transition-colors hover:text-foreground"
+                >
+                  <span className="font-mono text-[0.58rem] text-muted-foreground/70">{n.number}</span>
+                  <span>{n.label}</span>
+                </Link>
+              ))}
+            </nav>
 
-              {/* Quick Jump Stage Pills */}
-              <div className="hidden lg:flex items-center gap-1.5 font-mono text-[0.6rem]">
-                <span className="text-muted-foreground/60 mr-1 uppercase tracking-widest text-[0.55rem]">
-                  Stage Jump:
-                </span>
-                <a
-                  href="/research#stage-01"
-                  className="rounded-full border border-border/80 px-2.5 py-0.5 text-muted-foreground hover:border-signal-blue hover:text-foreground transition-all"
-                >
-                  01: Foundations
-                </a>
-                <a
-                  href="/research#stage-02"
-                  className="rounded-full border border-border/80 px-2.5 py-0.5 text-muted-foreground hover:border-signal-amber hover:text-foreground transition-all"
-                >
-                  02: EMA
-                </a>
-                <a
-                  href="/research#stage-03"
-                  className="rounded-full border border-signal-blue/40 bg-signal-blue/5 px-2.5 py-0.5 text-signal-blue font-semibold hover:bg-signal-blue/10 transition-all"
-                >
-                  03: PS-002B Bayesian
-                </a>
-              </div>
+            {/* Quick Jump Stage Pills */}
+            <div className="hidden lg:flex items-center gap-1.5 font-mono text-[0.6rem]">
+              <span className="text-muted-foreground/60 mr-1 uppercase tracking-widest text-[0.55rem]">
+                Stage Jump:
+              </span>
+              <a
+                href="/research#stage-01"
+                className="rounded-full border border-border/80 px-2.5 py-0.5 text-muted-foreground hover:border-signal-blue hover:text-foreground transition-all"
+              >
+                01: Foundations
+              </a>
+              <a
+                href="/research#stage-02"
+                className="rounded-full border border-border/80 px-2.5 py-0.5 text-muted-foreground hover:border-signal-amber hover:text-foreground transition-all"
+              >
+                02: EMA
+              </a>
+              <a
+                href="/research#stage-03"
+                className="rounded-full border border-signal-blue/40 bg-signal-blue/5 px-2.5 py-0.5 text-signal-blue font-semibold hover:bg-signal-blue/10 transition-all"
+              >
+                03: PS-002B Bayesian
+              </a>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

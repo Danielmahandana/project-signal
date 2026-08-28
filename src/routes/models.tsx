@@ -28,14 +28,17 @@ function ModelsPage() {
       >
         <SubSection subNumber="04.1" title="The EMA Update Rule">
           <p>
-            We begin with <M>{"\\theta_0 = 0.5"}</M>. Each binary observation <M>{"y_t \\in \\{0, 1\\}"}</M> updates the score:
+            We begin with baseline neutral belief <M>{"\\theta_0 = 0.5"}</M>. Each binary observation impulse <M>{"y_t \\in \\{0, 1\\}"}</M> updates capability:
           </p>
-          <Eq note="The estimate moves a step toward what was observed.">
-            {"\\theta_{t+1}=\\theta_t+\\eta(y_t-\\theta_t)"}
+          <Eq
+            title="01.1 — Scalar Exponential Moving Average (EMA) Update Rule"
+            note="The posterior belief θ_{t+1} adjusts the prior θ_t by a step fraction η of residual error (y_t - θ_t)."
+          >
+            {"\\theta_{t+1} = \\theta_t + \\eta \\cdot (y_t - \\theta_t)"}
           </Eq>
           <p>
-            <M>{"\\eta = 0.1"}</M> is the learning rate. A correct response moves{" "}
-            <M>{"0.5 \\to 0.55"}</M>; an incorrect response moves <M>{"0.5 \\to 0.45"}</M>.
+            <M>{"\\eta = 0.10"}</M> is the constant learning rate. A correct task attempt moves{" "}
+            <M>{"0.50 \\to 0.55"}</M>; an incorrect attempt moves <M>{"0.50 \\to 0.45"}</M>.
           </p>
           <StatusTag kind="built" />
         </SubSection>

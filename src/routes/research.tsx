@@ -102,8 +102,11 @@ function ResearchPage() {
               We initialized capability at a neutral mid-point <M>{"\\theta_0 = 0.5"}</M>. For every
               binary response <M>{"y_t \\in \\{0, 1\\}"}</M>, the estimate updated via exponential smoothing:
             </p>
-            <Eq note="where η = 0.1 is the constant learning rate.">
-              {"\\theta_{t+1} = \\theta_t + \\eta (y_t - \\theta_t)"}
+            <Eq
+              title="02.1 — Baseline EMA Update Rule"
+              note="where η = 0.10 is the constant learning rate and (y_t - θ_t) is instantaneous residual error."
+            >
+              {"\\theta_{t+1} = \\theta_t + \\eta \\cdot (y_t - \\theta_t)"}
             </Eq>
             <p>
               A success moved the estimate from <M>{"0.50 \\to 0.55"}</M>; a failure moved it from{" "}

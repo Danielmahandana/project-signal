@@ -59,28 +59,30 @@ function Index() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative mx-auto max-w-5xl px-6 pb-12 pt-16 text-center md:pt-24">
-        <BlobMark className="mx-auto w-72 md:w-96" />
+      <section className="relative mx-auto max-w-5xl px-4 sm:px-6 pt-3 sm:pt-6 md:pt-8 pb-8 sm:pb-12 text-center flex flex-col items-center justify-center">
+        <BlobMark className="mx-auto w-48 sm:w-56 md:w-64 lg:w-72 max-h-[140px] sm:max-h-[165px]" />
 
-        <p className="eyebrow mt-8 tracking-[0.22em] text-signal-blue">Project Signal &middot; Research Evolution</p>
-        <h1 className="mx-auto mt-4 max-w-4xl text-3xl font-semibold leading-[1.12] md:text-5xl">
+        <p className="eyebrow mt-3 sm:mt-4 md:mt-5 tracking-[0.22em] text-signal-blue text-[0.65rem] sm:text-xs">
+          Project Signal &middot; Research Evolution
+        </p>
+        <h1 className="mx-auto mt-2 sm:mt-3 max-w-3xl text-2xl font-semibold leading-[1.16] sm:text-3xl md:text-4xl lg:text-[2.6rem]">
           Understanding human capabilities by combining reported history with empirical inference.
         </h1>
-        <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground leading-relaxed">
+        <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
           From static CV scores to dynamic Bayesian belief states: an open research programme into evidence, inference, and uncertainty.
         </p>
 
         {/* Action Buttons */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/research"
-            className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90 shadow-sm"
+            className="rounded-full bg-primary px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground transition-all hover:opacity-90 shadow-sm"
           >
             Explore Research Evolution →
           </Link>
           <Link
             to="/models"
-            className="rounded-full border border-border bg-surface/50 px-6 py-3 text-sm font-semibold transition-all hover:bg-accent hover:border-signal-blue"
+            className="rounded-full border border-border bg-surface/50 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold transition-all hover:bg-accent hover:border-signal-blue"
           >
             Mathematical Models →
           </Link>

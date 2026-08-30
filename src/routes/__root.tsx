@@ -10,7 +10,7 @@ import {
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { SiteFooter, SiteHeader } from "@/components/site/SiteChrome";
+import { SiteHeader } from "@/components/site/SiteChrome";
 
 function NotFoundComponent() {
   return (
@@ -128,7 +128,6 @@ function RootComponent() {
       <main>
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
-        <SiteFooter />
       </main>
     </QueryClientProvider>
   );

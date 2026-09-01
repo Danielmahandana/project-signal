@@ -54,10 +54,14 @@ export function TrajectoryTable() {
                 </td>
                 <td className="px-3 py-3 text-right text-foreground">{r.a}</td>
                 <td className="px-3 py-3 text-right text-foreground">{r.b}</td>
-                <td className={`px-3 py-3 text-right ${r.isFinal ? "text-signal-blue text-sm" : "text-foreground"}`}>
+                <td
+                  className={`px-3 py-3 text-right ${r.isFinal ? "text-signal-blue text-sm" : "text-foreground"}`}
+                >
                   {r.est}
                 </td>
-                <td className={`py-3 pl-3 pr-6 text-right ${r.isFinal ? "text-signal-blue text-sm" : "text-muted-foreground"}`}>
+                <td
+                  className={`py-3 pl-3 pr-6 text-right ${r.isFinal ? "text-signal-blue text-sm" : "text-muted-foreground"}`}
+                >
                   {r.unc}
                 </td>
               </tr>

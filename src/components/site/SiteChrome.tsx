@@ -23,7 +23,7 @@ export function SiteHeader() {
         window.requestAnimationFrame(() => {
           const currentY = window.scrollY;
           setIsScrolled(currentY > 20);
-          
+
           // Require significant scroll delta (> 40px) to collapse/expand to prevent flickering loop
           if (currentY > 180) {
             const delta = currentY - lastY;
@@ -114,7 +114,9 @@ export function SiteHeader() {
                   }}
                   className="group relative z-10 flex shrink-0 items-center gap-1.5 py-0.5 transition-colors hover:text-foreground"
                 >
-                  <span className="font-mono text-[0.58rem] text-muted-foreground/70">{n.number}</span>
+                  <span className="font-mono text-[0.58rem] text-muted-foreground/70">
+                    {n.number}
+                  </span>
                   <span>{n.label}</span>
                 </Link>
               ))}
@@ -156,10 +158,16 @@ export function SiteFooter() {
     <footer className="border-t border-border py-12 bg-surface/40">
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="font-mono uppercase tracking-[0.18em] font-semibold text-foreground">Project Signal</p>
-          <p className="mt-1 text-[0.7rem]">A research programme into evidence, inference and human capability.</p>
+          <p className="font-mono uppercase tracking-[0.18em] font-semibold text-foreground">
+            Project Signal
+          </p>
+          <p className="mt-1 text-[0.7rem]">
+            A research programme into evidence, inference and human capability.
+          </p>
         </div>
-        <p className="font-mono text-[0.65rem]">Systems Engineering Team at Darkroom &middot; Daniel &middot; Narvin &middot; Thabang</p>
+        <p className="font-mono text-[0.65rem]">
+          Systems Engineering Team at Darkroom &middot; Daniel &middot; Narvin &middot; Thabang
+        </p>
       </div>
     </footer>
   );

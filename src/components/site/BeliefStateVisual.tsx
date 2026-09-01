@@ -22,7 +22,7 @@ export function BeliefStateVisual({
   const minPct = 10;
   const maxPct = 90;
   const posPct = minPct + estimate * (maxPct - minPct);
-  
+
   // Uncertainty width percentage
   const uncWidthPct = uncertainty * (maxPct - minPct);
   const uncLeftPct = Math.max(minPct, posPct - uncWidthPct);
@@ -31,7 +31,7 @@ export function BeliefStateVisual({
   return (
     <div className="my-8 rounded-2xl border border-border bg-card/80 p-6 md:p-8 text-center backdrop-blur-sm shadow-xs transition-all">
       <p className="eyebrow tracking-[0.2em]">{label}</p>
-      
+
       {/* Primary Estimate Number */}
       <div className="mt-4 flex items-baseline justify-center gap-1">
         <span className="font-mono text-4xl sm:text-5xl font-semibold tracking-tight text-foreground">

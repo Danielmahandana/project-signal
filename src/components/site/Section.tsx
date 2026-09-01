@@ -17,23 +17,27 @@ export function Section({
   children?: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 border-t border-border py-12 sm:py-16 md:py-24">
+    <section id={id} className="scroll-mt-20 border-t border-border py-10 sm:py-14 md:py-18">
       <Reveal>
-        <div className="mx-auto grid max-w-5xl gap-5 px-4 sm:px-6 md:grid-cols-[10rem_1fr] md:gap-10">
-          <div className="eyebrow pt-2 flex flex-col gap-2">
+        <div className="mx-auto grid max-w-5xl gap-4 px-4 sm:px-6 md:grid-cols-[8rem_1fr] md:gap-8">
+          <div className="eyebrow pt-1.5 flex flex-col gap-2">
             <span>{number}</span>
             {stageTag ? (
-              <span className="inline-block rounded-md border border-border bg-surface px-2 py-0.5 font-mono text-[0.6rem] font-semibold text-muted-foreground">
+              <span className="inline-block rounded border border-border bg-surface px-1.5 py-0.5 font-mono text-[0.6rem] font-medium text-muted-foreground">
                 {stageTag}
               </span>
             ) : null}
           </div>
           <div>
-            <h2 className="text-[1.4rem] font-semibold leading-tight sm:text-2xl md:text-[2rem]">
+            <h2 className="text-xl font-semibold leading-snug sm:text-2xl md:text-[1.85rem] text-foreground tracking-tight">
               {title}
             </h2>
-            {lede ? <p className="mt-3 max-w-2xl text-lg text-muted-foreground">{lede}</p> : null}
-            <div className="mt-6 max-w-2xl space-y-5 text-[0.92rem] leading-7 text-foreground/85 sm:mt-8">
+            {lede ? (
+              <p className="mt-2.5 max-w-2xl text-base text-muted-foreground leading-relaxed">
+                {lede}
+              </p>
+            ) : null}
+            <div className="mt-5 max-w-2xl space-y-4 text-[0.94rem] leading-relaxed text-foreground/90 sm:mt-6">
               {children}
             </div>
           </div>
@@ -55,58 +59,23 @@ export function SubSection({
   children?: ReactNode;
 }) {
   return (
-    <div id={id} className="scroll-mt-24 my-8 border-l-2 border-border/80 pl-5 sm:pl-6 transition-all hover:border-signal-blue">
+    <div
+      id={id}
+      className="scroll-mt-20 my-6 border-l-2 border-border pl-4 sm:pl-5 transition-all hover:border-foreground/40"
+    >
       <div className="flex items-center gap-2">
-        <span className="font-mono text-xs font-semibold text-signal-blue">{subNumber}</span>
-        <h3 className="text-base font-semibold text-foreground sm:text-lg">{title}</h3>
+        <span className="font-mono text-xs font-semibold text-foreground/70">{subNumber}</span>
+        <h3 className="text-base font-semibold text-foreground">{title}</h3>
       </div>
-      <div className="mt-3 space-y-4 text-sm text-foreground/85 leading-relaxed">{children}</div>
+      <div className="mt-2.5 space-y-3 text-sm text-foreground/85 leading-relaxed">{children}</div>
     </div>
   );
 }
 
-export function Ascii({ children }: { children: string }) {
-  return (
-    <pre className="ascii max-w-full overflow-x-auto rounded-lg border border-border bg-surface p-4 text-muted-foreground sm:p-5">
-      {children}
-    </pre>
-  );
-}
-
 export function StatusTag({ kind }: { kind: "built" | "observed" | "hypothesised" | "unknown" }) {
-  const map = {
-    built: "border-signal-green/40 text-signal-green bg-signal-green/5",
-    observed: "border-signal-blue/40 text-signal-blue bg-signal-blue/5",
-    hypothesised: "border-signal-amber/60 text-signal-amber bg-signal-amber/5",
-    unknown: "border-signal-red/40 text-signal-red bg-signal-red/5",
-  } as const;
   return (
-    <span
-      className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] ${map[kind]}`}
-    >
+    <span className="inline-flex items-center rounded border border-border bg-surface px-2 py-0.5 font-mono text-[0.62rem] font-medium text-foreground/80 uppercase tracking-wider">
       {kind}
     </span>
-  );
-}
-
-export function PageHeader({
-  eyebrow,
-  title,
-  lede,
-}: {
-  eyebrow: string;
-  title: string;
-  lede: string;
-}) {
-  return (
-    <header className="mx-auto max-w-5xl px-4 pb-4 pt-12 sm:px-6 sm:pt-16 md:pt-28">
-      <p className="eyebrow">{eyebrow}</p>
-      <h1 className="mt-4 max-w-3xl text-3xl font-semibold leading-[1.08] sm:text-4xl md:text-6xl">
-        {title}
-      </h1>
-      <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:mt-6 sm:text-lg">
-        {lede}
-      </p>
-    </header>
   );
 }

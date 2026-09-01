@@ -10,7 +10,7 @@ import {
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { SiteHeader } from "@/components/site/SiteChrome";
+import { ResearchChrome } from "@/components/site/shared/ResearchChrome";
 
 function NotFoundComponent() {
   return (
@@ -74,16 +74,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Project Signal — Systems Engineering Team at Darkroom" },
+      { title: "Project Signal — Interactive Research Laboratory" },
       {
         name: "description",
-        content: "A research programme into evidence, inference and human capability.",
+        content:
+          "An interactive research instrument into evidence, Bayesian capability inference, and adaptive measurement.",
       },
       { name: "author", content: "Systems Engineering Team at Darkroom" },
-      { property: "og:title", content: "Project Signal" },
+      { property: "og:title", content: "Project Signal — Interactive Research Laboratory" },
       {
         property: "og:description",
-        content: "A research programme into evidence, inference and human capability.",
+        content:
+          "A research instrument into evidence, Bayesian capability inference, and adaptive measurement.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -124,8 +126,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteHeader />
-      <main>
+      <ResearchChrome />
+      <main className="min-h-screen">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </main>

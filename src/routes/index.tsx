@@ -1,147 +1,161 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { BlobMark } from "@/components/site/BlobMark";
-import { Reveal } from "@/components/site/Reveal";
-import { Section, Ascii, StatusTag } from "@/components/site/Section";
-import { EvidenceFlow } from "@/components/site/EvidenceFlow";
-import { NextPage } from "@/components/site/SiteChrome";
+import { createFileRoute } from "@tanstack/react-router";
+import { Chapter01Foundations } from "@/components/site/research/Chapter01Foundations";
+import { Chapter02Estimators } from "@/components/site/research/Chapter02Estimators";
+import { Chapter03Experiments } from "@/components/site/research/Chapter03Experiments";
+import { Chapter04AdaptiveLab } from "@/components/site/research/Chapter04AdaptiveLab";
+import { Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Project Signal — Systems Engineering Team at Darkroom" },
+      { title: "Project Signal — Interactive Research Experience" },
       {
         name: "description",
         content:
-          "A research programme into evidence, inference and human capability: combining reported experience with observed capability.",
+          "Learning from evidence: A system for reasoning about latent capabilities from observable evidence via online Bayesian inference.",
       },
-      { property: "og:title", content: "Project Signal — Darkroom Systems Engineering" },
+      { property: "og:title", content: "Project Signal — Interactive Research Experience" },
       {
         property: "og:description",
-        content: "A research programme into evidence, inference and human capability.",
+        content:
+          "Don't build a website that explains the research. Build an interface that lets someone experience the research.",
       },
     ],
   }),
-  component: Index,
+  component: IndexPage,
 });
 
-const researchEvolutionStages = [
-  {
-    to: "/research#stage-01",
-    n: "Stage 01",
-    title: "Foundations: Reported vs Observed",
-    body: "Why CVs are not enough, reported evidence vs observed capability, and evidence flow extraction.",
-    badge: "Foundations",
-  },
-  {
-    to: "/research#stage-02",
-    n: "Stage 02",
-    title: "Baseline 01: Exponential Moving Average",
-    body: "The initial scalar update model θ(t+1) = θ(t) + η(y - θ) and why single scores create false precision.",
-    badge: "Baseline EMA",
-  },
-  {
-    to: "/research#stage-03",
-    n: "Stage 03",
-    title: "Baseline 02: Bayesian Capability Inference",
-    body: "Experiment PS-002B: Beta-Binomial conjugate update, neutral prior Beta(1,1), interactive density curve & mixed evidence.",
-    badge: "PS-002B Bayesian",
-  },
-  {
-    to: "/research#stage-04",
-    n: "Stage 04",
-    title: "Phase 03: Adaptive Task Selection",
-    body: "Using belief state to select next optimal tasks via maximum information gain.",
-    badge: "Phase 03 Adaptive",
-  },
-];
+function IndexPage() {
+  const scrollToChapter = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
 
-function Index() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative mx-auto max-w-5xl px-4 sm:px-6 pt-3 sm:pt-6 md:pt-8 pb-8 sm:pb-12 text-center flex flex-col items-center justify-center">
-        <BlobMark className="mx-auto w-48 sm:w-56 md:w-64 lg:w-72 max-h-[140px] sm:max-h-[165px]" />
+    <div className="relative min-h-screen bg-background text-foreground transition-colors duration-200">
+      {/* =========================================================================
+          NOTION-STYLE FULL HORIZONTAL COVER BANNER (Header Image)
+          ========================================================================= */}
+      <div className="relative w-full h-44 sm:h-64 md:h-80 lg:h-96 overflow-hidden select-none bg-surface">
+        <img
+          src="/header-brain.jpeg"
+          alt="Cognitive Architecture and Neural Inference Visualization"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Subtle Notion Gradient Overlay Fading into Page */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-background" />
+      </div>
 
-        <p className="eyebrow mt-3 sm:mt-4 md:mt-5 tracking-[0.22em] text-signal-blue text-[0.65rem] sm:text-xs">
-          Project Signal &middot; Research Evolution
-        </p>
-        <h1 className="mx-auto mt-2 sm:mt-3 max-w-3xl text-2xl font-semibold leading-[1.16] sm:text-3xl md:text-4xl lg:text-[2.6rem]">
-          Understanding human capabilities by combining reported history with empirical inference.
-        </h1>
-        <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
-          From static CV scores to dynamic Bayesian belief states: an open research programme into evidence, inference, and uncertainty.
-        </p>
-
-        {/* Action Buttons */}
-        <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            to="/research"
-            className="rounded-full bg-primary px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-primary-foreground transition-all hover:opacity-90 shadow-sm"
-          >
-            Explore Research Evolution →
-          </Link>
-          <Link
-            to="/models"
-            className="rounded-full border border-border bg-surface/50 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold transition-all hover:bg-accent hover:border-signal-blue"
-          >
-            Mathematical Models →
-          </Link>
+      {/* =========================================================================
+          HERO HEADER / PROLOGUE
+          ========================================================================= */}
+      <header className="relative mx-auto max-w-5xl px-4 sm:px-6 pt-3 sm:pt-4 pb-8 sm:pb-10">
+        {/* Notion Icon Badge */}
+        <div className="flex items-center gap-2">
+          <div className="flex h-6 sm:h-7 w-6 sm:w-7 items-center justify-center rounded border border-border bg-surface shadow-2xs">
+            <Sparkles className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-foreground/80" />
+          </div>
+          <span className="eyebrow text-muted-foreground text-[0.62rem] sm:text-xs">
+            PROJECT SIGNAL &middot; RESEARCH PAPER
+          </span>
         </div>
-      </section>
 
-      {/* Premise Section */}
-      <Section number="Premise" title="A CV tells us what someone has done.">
-        <p>It does not necessarily tell us what they can do.</p>
-        <p>
-          Job titles are inconsistent. Skills are described differently across industries.
-          Experience can be difficult to compare. And a written history rarely captures how someone
-          actually approaches a problem.
-        </p>
-        <EvidenceFlow />
-      </Section>
+        {/* Primary Page Title */}
+        <h1 className="mt-2.5 sm:mt-3 max-w-3xl text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
+          Learning from evidence.
+        </h1>
 
-      {/* Evolution Journal Chapters */}
-      <Section number="Evolution" title="The Research Journey Across 4 Stages">
-        <p className="text-muted-foreground mb-6">
-          Explore how our capability inference models evolved over time:
+        <p className="mt-2 max-w-2xl text-sm sm:text-base md:text-lg text-muted-foreground font-normal leading-relaxed">
+          A system for reasoning about latent capabilities from observable evidence.
         </p>
-        <div className="not-prose space-y-4">
-          {researchEvolutionStages.map((s) => (
-            <Reveal key={s.to}>
-              <Link
-                to={s.to as never}
-                className="group grid gap-3 rounded-xl border border-border bg-card p-5 transition-all hover:border-signal-blue hover:bg-accent/30 sm:grid-cols-[8rem_1fr]"
-              >
-                <div className="flex flex-col gap-1">
-                  <span className="eyebrow">{s.n}</span>
-                  <span className="inline-block font-mono text-[0.6rem] font-semibold text-signal-blue">
-                    {s.badge}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-base font-semibold text-foreground group-hover:text-signal-blue transition-colors">
-                    {s.title} →
-                  </h3>
-                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{s.body}</p>
-                </div>
-              </Link>
-            </Reveal>
+
+        {/* Minimalist Chapter Navigation Pills */}
+        <div className="mt-5 flex flex-wrap items-center gap-1.5 sm:gap-2 pt-2 border-t border-border">
+          {[
+            { id: "chapter-01", n: "01", title: "Foundations" },
+            { id: "chapter-02", n: "02", title: "EMA vs Bayesian" },
+            { id: "chapter-03", n: "03", title: "Experiments" },
+            { id: "chapter-04", n: "04", title: "Adaptive Loop" },
+          ].map((ch) => (
+            <button
+              key={ch.id}
+              type="button"
+              onClick={() => scrollToChapter(ch.id)}
+              className="btn-text hover:bg-surface text-xs"
+            >
+              <span className="text-muted-foreground">{ch.n}</span>
+              <span>{ch.title}</span>
+            </button>
           ))}
         </div>
-      </Section>
+      </header>
 
-      {/* Core Principle */}
-      <Section number="Principle" title="Measurement is not truth.">
-        <Ascii>{`Evidence  ≠  Truth
+      {/* =========================================================================
+          CHAPTER 01: RESEARCH & FOUNDATIONS (Sections 00 - 01)
+          ========================================================================= */}
+      <Chapter01Foundations />
 
-Evidence ──► Inference ──► Uncertainty (σ)`}</Ascii>
-        <p>
-          A cognitive assessment produces observations. Observations inform estimates. Estimates
-          have uncertainty. Uncertainty should remain visible.
-        </p>
-      </Section>
+      {/* =========================================================================
+          CHAPTER 02: THE TWO ESTIMATORS & THE SHIFT (Sections 02 - 05)
+          ========================================================================= */}
+      <Chapter02Estimators />
 
-      <NextPage to="/research" label="01 — Research Journal Evolution" />
-    </>
+      {/* =========================================================================
+          CHAPTER 03: THE EXPERIMENTS & COMPARISON (Sections 06 - 12)
+          ========================================================================= */}
+      <Chapter03Experiments />
+
+      {/* =========================================================================
+          CHAPTER 04: ADAPTIVE ENGINE & NOTEBOOK (Sections 13 - 19)
+          ========================================================================= */}
+      <Chapter04AdaptiveLab />
+
+      {/* =========================================================================
+          NOTION-STYLE FULL HORIZONTAL FOOTER BANNER (Footer Image)
+          ========================================================================= */}
+      <footer className="relative mt-12 sm:mt-16 w-full border-t border-border bg-surface overflow-hidden">
+        {/* Full-width Panoramic Footer Cover Image with Fade */}
+        <div className="relative w-full h-56 sm:h-72 md:h-80 overflow-hidden select-none">
+          <img
+            src="/footer-butterfly.jpeg"
+            alt="Emergence from Evidence and Continuous Belief Synthesis"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Subtle Gradient Blend */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/25" />
+
+          {/* Footer Foreground Content */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+            <p className="eyebrow tracking-widest text-muted-foreground mb-2 text-[0.62rem] sm:text-xs">
+              PROJECT SIGNAL &middot; CENTRAL RESEARCH THESIS
+            </p>
+            <blockquote className="max-w-xl text-base sm:text-lg md:text-xl font-medium text-foreground tracking-tight">
+              "The goal is not to predict with certainty.
+              <br />
+              It is to become more informed with each observation."
+            </blockquote>
+          </div>
+        </div>
+
+        {/* Minimal Copyright & Team Metadata Bar */}
+        <div className="border-t border-border bg-background py-5 sm:py-6 px-4 sm:px-6">
+          <div className="mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs text-muted-foreground font-mono">
+            <div>
+              <span className="font-semibold text-foreground">PROJECT SIGNAL</span>
+              <span className="mx-2">&middot;</span>
+              <span>Darkroom Systems Engineering</span>
+            </div>
+            <div>
+              <span>Daniel &middot; Narvin &middot; Thabang</span>
+              <span className="mx-2">&middot;</span>
+              <span className="text-foreground">PS-002B Bayesian Engine</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }

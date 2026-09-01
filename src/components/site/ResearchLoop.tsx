@@ -27,7 +27,13 @@ export function ResearchLoop() {
           strokeDasharray="40 640"
           strokeLinecap="round"
         >
-          <animate attributeName="stroke-dashoffset" from="0" to="-680" dur="8s" repeatCount="indefinite" />
+          <animate
+            attributeName="stroke-dashoffset"
+            from="0"
+            to="-680"
+            dur="8s"
+            repeatCount="indefinite"
+          />
         </circle>
         {stages.map((s, i) => {
           const angle = (i / stages.length) * Math.PI * 2 - Math.PI / 2;
@@ -35,7 +41,13 @@ export function ResearchLoop() {
           const y = cy + Math.sin(angle) * r;
           return (
             <g key={s}>
-              <circle cx={x} cy={y} r="5" className="fill-background stroke-foreground" strokeWidth="1.5" />
+              <circle
+                cx={x}
+                cy={y}
+                r="5"
+                className="fill-background stroke-foreground"
+                strokeWidth="1.5"
+              />
               <text
                 x={cx + Math.cos(angle) * (r + 26)}
                 y={cy + Math.sin(angle) * (r + 26) + 4}

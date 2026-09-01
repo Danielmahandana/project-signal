@@ -9,9 +9,9 @@ function logGamma(z: number): number {
   }
   z -= 1;
   const c = [
-    0.99999999999980993, 676.5203681218851, -1259.1392167224028,
-    771.32342877765313, -176.61502916214059, 12.507343278686905,
-    -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7,
+    0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313,
+    -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6,
+    1.5056327351493116e-7,
   ];
   let sum = c[0] ?? 1.0;
   for (let i = 1; i < c.length; i++) {
@@ -112,7 +112,6 @@ export function InteractiveBetaLab() {
     };
   }, [isPlaying, obs]);
 
-
   const handlePlaySequence = () => {
     setObs([]);
     setIsPlaying(true);
@@ -133,7 +132,10 @@ export function InteractiveBetaLab() {
         <div>
           <p className="eyebrow">INTERACTIVE MODEL</p>
           <h3 className="mt-1 text-lg font-semibold text-foreground">
-            Beta Distribution Posterior State: <span className="font-mono text-signal-blue">Beta({alpha}, {beta})</span>
+            Beta Distribution Posterior State:{" "}
+            <span className="font-mono text-signal-blue">
+              Beta({alpha}, {beta})
+            </span>
           </h3>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -200,10 +202,21 @@ export function InteractiveBetaLab() {
 
           {/* Grid lines */}
           <line x1="20" y1="140" x2="480" y2="140" className="stroke-border" strokeWidth="1" />
-          <line x1="250" y1="20" x2="250" y2="140" className="stroke-border/40" strokeDasharray="3 3" />
+          <line
+            x1="250"
+            y1="20"
+            x2="250"
+            y2="140"
+            className="stroke-border/40"
+            strokeDasharray="3 3"
+          />
 
           {/* Beta Fill Area */}
-          <path d={areaPath} fill="url(#betaGradient)" className="transition-all duration-300 ease-out" />
+          <path
+            d={areaPath}
+            fill="url(#betaGradient)"
+            className="transition-all duration-300 ease-out"
+          />
 
           {/* Beta Curve Stroke */}
           <path

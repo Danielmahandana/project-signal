@@ -11,15 +11,87 @@ export interface StreamStep {
 }
 
 export const PS002B_STREAM_DATA: StreamStep[] = [
-  { obsNum: 1, result: "SUCCESS", alpha: 2.0, beta: 1.0, estimate: 0.6667, uncertainty: 0.2357, delta: 0.1667 },
-  { obsNum: 2, result: "SUCCESS", alpha: 3.0, beta: 1.0, estimate: 0.7500, uncertainty: 0.1936, delta: 0.0833 },
-  { obsNum: 3, result: "FAILURE", alpha: 3.0, beta: 2.0, estimate: 0.6000, uncertainty: 0.2000, delta: -0.1500 },
-  { obsNum: 4, result: "SUCCESS", alpha: 4.0, beta: 2.0, estimate: 0.6667, uncertainty: 0.1782, delta: 0.0667 },
-  { obsNum: 5, result: "FAILURE", alpha: 4.0, beta: 3.0, estimate: 0.5714, uncertainty: 0.1750, delta: -0.0953 },
-  { obsNum: 6, result: "SUCCESS", alpha: 5.0, beta: 3.0, estimate: 0.6250, uncertainty: 0.1614, delta: 0.0536 },
-  { obsNum: 7, result: "SUCCESS", alpha: 6.0, beta: 3.0, estimate: 0.6667, uncertainty: 0.1491, delta: 0.0417 },
-  { obsNum: 8, result: "FAILURE", alpha: 6.0, beta: 4.0, estimate: 0.6000, uncertainty: 0.1477, delta: -0.0667 },
-  { obsNum: 9, result: "SUCCESS", alpha: 7.0, beta: 4.0, estimate: 0.6364, uncertainty: 0.1389, delta: 0.0364 },
+  {
+    obsNum: 1,
+    result: "SUCCESS",
+    alpha: 2.0,
+    beta: 1.0,
+    estimate: 0.6667,
+    uncertainty: 0.2357,
+    delta: 0.1667,
+  },
+  {
+    obsNum: 2,
+    result: "SUCCESS",
+    alpha: 3.0,
+    beta: 1.0,
+    estimate: 0.75,
+    uncertainty: 0.1936,
+    delta: 0.0833,
+  },
+  {
+    obsNum: 3,
+    result: "FAILURE",
+    alpha: 3.0,
+    beta: 2.0,
+    estimate: 0.6,
+    uncertainty: 0.2,
+    delta: -0.15,
+  },
+  {
+    obsNum: 4,
+    result: "SUCCESS",
+    alpha: 4.0,
+    beta: 2.0,
+    estimate: 0.6667,
+    uncertainty: 0.1782,
+    delta: 0.0667,
+  },
+  {
+    obsNum: 5,
+    result: "FAILURE",
+    alpha: 4.0,
+    beta: 3.0,
+    estimate: 0.5714,
+    uncertainty: 0.175,
+    delta: -0.0953,
+  },
+  {
+    obsNum: 6,
+    result: "SUCCESS",
+    alpha: 5.0,
+    beta: 3.0,
+    estimate: 0.625,
+    uncertainty: 0.1614,
+    delta: 0.0536,
+  },
+  {
+    obsNum: 7,
+    result: "SUCCESS",
+    alpha: 6.0,
+    beta: 3.0,
+    estimate: 0.6667,
+    uncertainty: 0.1491,
+    delta: 0.0417,
+  },
+  {
+    obsNum: 8,
+    result: "FAILURE",
+    alpha: 6.0,
+    beta: 4.0,
+    estimate: 0.6,
+    uncertainty: 0.1477,
+    delta: -0.0667,
+  },
+  {
+    obsNum: 9,
+    result: "SUCCESS",
+    alpha: 7.0,
+    beta: 4.0,
+    estimate: 0.6364,
+    uncertainty: 0.1389,
+    delta: 0.0364,
+  },
 ];
 
 export function ObservationTimeline() {
@@ -99,11 +171,15 @@ export function ObservationTimeline() {
                   </div>
                   <div>
                     <span className="text-muted-foreground">Estimate:</span>{" "}
-                    <span className="font-semibold text-foreground">{step.estimate.toFixed(4)}</span>
+                    <span className="font-semibold text-foreground">
+                      {step.estimate.toFixed(4)}
+                    </span>
                   </div>
                   <div>
                     <span className="text-muted-foreground">Uncertainty:</span>{" "}
-                    <span className="font-medium text-foreground">{step.uncertainty.toFixed(4)}</span>
+                    <span className="font-medium text-foreground">
+                      {step.uncertainty.toFixed(4)}
+                    </span>
                   </div>
                 </div>
               </div>

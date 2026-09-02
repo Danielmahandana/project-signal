@@ -5,7 +5,6 @@ import { InspectDrawer, CodeSnippet } from "@/components/site/shared/InspectDraw
 import { InteractiveSlider } from "@/components/site/shared/InteractiveSlider";
 import { EvidenceStream, type ObservationOutcome } from "@/components/site/shared/EvidenceStream";
 import { BetaDistributionCanvas } from "@/components/site/shared/BetaDistributionCanvas";
-import { Play, RotateCcw, Plus } from "lucide-react";
 
 const STANDARD_SEQUENCE: ObservationOutcome[] = [1, 1, 0, 1, 0, 1, 1, 0, 1];
 
@@ -85,18 +84,19 @@ export function Chapter02Estimators() {
       <Section
         id="section-02"
         number="02"
-        title="Start simple: The Exponential Moving Average"
-        lede="Our initial exploration began with an online scalar moving average estimator."
+        title="Starting with the Baseline: The Exponential Moving Average"
+        lede="Our exploration began with sequential scalar estimation—updating beliefs step-by-step as each observation arrives."
       >
         <div className="space-y-4 text-sm sm:text-base leading-relaxed text-foreground/90">
           <p>
-            Before exploring probabilistic architectures, we evaluated the simplest online tracker:
-            an <strong>Exponential Moving Average (EMA)</strong>.
+            Before exploring probabilistic architectures, we evaluated the fundamental sequential tracker:
+            an <strong>Exponential Moving Average (EMA)</strong>. In this baseline model, the system
+            maintains a single scalar estimate and updates it in real time upon observing each binary task outcome.
           </p>
 
           <p>
-            The update rule is lightweight and computationally trivial: starting from neutral
-            expectation <M>{"\\theta_0 = 0.500"}</M>, each observed binary task outcome{" "}
+            The update rule is lightweight and computationally direct: starting from a neutral midpoint{" "}
+            <M>{"\\theta_0 = 0.500"}</M>, each observed binary task outcome{" "}
             <M>{"y_t \\in \\{0, 1\\}"}</M> produces an instantaneous error residual{" "}
             <M>{"(y_t - \\theta_t)"}</M>, nudging the estimate by learning rate <M>{"\\eta"}</M>:
           </p>
@@ -125,7 +125,6 @@ export function Chapter02Estimators() {
                 disabled={isEmaRunning}
                 className="btn-text bg-surface font-semibold"
               >
-                <Play className="h-3.5 w-3.5" />
                 {isEmaRunning ? "RUNNING..." : "RUN STREAM →"}
               </button>
               <button
@@ -150,8 +149,7 @@ export function Chapter02Estimators() {
                 }}
                 className="btn-text text-muted-foreground"
               >
-                <RotateCcw className="h-3.5 w-3.5" />
-                RESET
+                RESET ↺
               </button>
             </div>
           </div>
@@ -194,8 +192,8 @@ export function Chapter02Estimators() {
               </span>
             </div>
 
-            <div className="relative h-24 sm:h-28 w-full">
-              <svg viewBox="0 0 500 100" className="h-full w-full overflow-visible">
+            <div className="relative h-24 sm:h-28 w-full max-w-full overflow-hidden">
+              <svg viewBox="0 0 500 100" className="h-full w-full max-w-full">
                 <line
                   x1="0"
                   y1="50"
@@ -499,8 +497,7 @@ export function Chapter02Estimators() {
                 onClick={() => setBayesianObs([])}
                 className="btn-text text-muted-foreground"
               >
-                <RotateCcw className="h-3.5 w-3.5" />
-                RESET
+                RESET ↺
               </button>
             </div>
           </div>

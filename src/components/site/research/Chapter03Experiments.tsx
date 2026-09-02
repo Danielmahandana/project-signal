@@ -3,7 +3,6 @@ import { Section, StatusTag } from "@/components/site/Section";
 import { M } from "@/components/site/Math";
 import { EvidenceStream, type ObservationOutcome } from "@/components/site/shared/EvidenceStream";
 import { BetaDistributionCanvas } from "@/components/site/shared/BetaDistributionCanvas";
-import { Play, RotateCcw } from "lucide-react";
 
 const EXP01_SEQUENCE: ObservationOutcome[] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]; // 11 successes
 const EXP02_SEQUENCE: ObservationOutcome[] = [1, 1, 0, 1, 0, 1, 1, 0, 1]; // 9 mixed
@@ -178,7 +177,6 @@ export function Chapter03Experiments() {
                 disabled={isExp01Playing}
                 className="btn-text bg-surface font-semibold"
               >
-                <Play className="h-3.5 w-3.5" />
                 {isExp01Playing ? "REPLAYING..." : "REPLAY EXP 01 →"}
               </button>
               <button
@@ -186,8 +184,7 @@ export function Chapter03Experiments() {
                 onClick={() => setExp01Obs([])}
                 className="btn-text text-muted-foreground"
               >
-                <RotateCcw className="h-3.5 w-3.5" />
-                RESET
+                RESET ↺
               </button>
             </div>
           </div>
@@ -293,7 +290,6 @@ export function Chapter03Experiments() {
                 disabled={isExp02Playing}
                 className="btn-text bg-surface font-semibold"
               >
-                <Play className="h-3.5 w-3.5" />
                 {isExp02Playing ? "REPLAYING..." : "REPLAY EXP 02 →"}
               </button>
               <button
@@ -301,8 +297,7 @@ export function Chapter03Experiments() {
                 onClick={() => setExp02Obs([])}
                 className="btn-text text-muted-foreground"
               >
-                <RotateCcw className="h-3.5 w-3.5" />
-                RESET
+                RESET ↺
               </button>
             </div>
           </div>
@@ -405,7 +400,7 @@ export function Chapter03Experiments() {
             />
           </div>
 
-          <div className="mt-5 overflow-x-auto -mx-2 px-2">
+          <div className="mt-5 w-full max-w-full overflow-x-auto scrollbar-thin">
             <table className="w-full text-left font-mono text-xs whitespace-nowrap">
               <thead>
                 <tr className="border-b border-border text-muted-foreground">
@@ -504,7 +499,6 @@ export function Chapter03Experiments() {
                 disabled={isCenterpiecePlaying}
                 className="btn-text bg-surface font-semibold"
               >
-                <Play className="h-3.5 w-3.5" />
                 {isCenterpiecePlaying ? "STREAMING..." : "STREAM 9 OBS →"}
               </button>
               <button
@@ -512,8 +506,7 @@ export function Chapter03Experiments() {
                 onClick={() => setCenterpieceObs([])}
                 className="btn-text text-muted-foreground"
               >
-                <RotateCcw className="h-3.5 w-3.5" />
-                RESET
+                RESET ↺
               </button>
             </div>
           </div>

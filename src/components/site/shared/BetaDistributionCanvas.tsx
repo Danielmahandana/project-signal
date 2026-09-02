@@ -162,13 +162,27 @@ export function BetaDistributionCanvas({
       ? betaPdf(Math.max(0.001, Math.min(0.999, hoverX)), primary.alpha, primary.beta)
       : null;
 
+  const handleTouchMove = (e: React.TouchEvent<SVGSVGElement>) => {
+    if (!showHoverInspector) return;
+    const touch = e.touches[0];
+    if (!touch) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clientX = touch.clientX - rect.left;
+    const xPct =
+      (clientX - (paddingX / svgWidth) * rect.width) / ((graphW / svgWidth) * rect.width);
+    const clampedX = Math.max(0, Math.min(1, xPct));
+    setHoverX(clampedX);
+  };
+
   return (
-    <div className={`relative w-full select-none ${className}`}>
+    <div className={`relative w-full max-w-full overflow-hidden select-none ${className}`}>
       <svg
         viewBox={`0 0 ${svgWidth} ${height}`}
-        className="w-full overflow-visible transition-all duration-300"
+        className="w-full h-auto max-w-full transition-all duration-300 touch-none"
         onMouseMove={handleMouseMove}
         onMouseLeave={() => setHoverX(null)}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={() => setHoverX(null)}
       >
         <defs>
           <linearGradient id={`${idPrefix}-grad-primary`} x1="0" y1="0" x2="0" y2="1">

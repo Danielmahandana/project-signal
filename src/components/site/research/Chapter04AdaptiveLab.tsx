@@ -4,7 +4,6 @@ import { M, Eq } from "@/components/site/Math";
 import { InspectDrawer, CodeSnippet } from "@/components/site/shared/InspectDrawer";
 import { InteractiveSlider } from "@/components/site/shared/InteractiveSlider";
 import { AdaptiveLoopDiagram } from "@/components/site/shared/AdaptiveLoopDiagram";
-import { AlertCircle, Terminal, RefreshCw } from "lucide-react";
 
 interface CandidateTask {
   id: string;
@@ -107,25 +106,31 @@ export function Chapter04AdaptiveLab() {
         <div className="my-6 not-prose grid gap-3 grid-cols-1 sm:grid-cols-2">
           {[
             {
+              index: "01",
               title: "Binary Observations Only",
               desc: "Responses are strictly coded as y ∈ {0, 1}, ignoring partial credit or nuances.",
             },
             {
+              index: "02",
               title: "No Task Difficulty Calibration",
               desc: "Currently treats solving an easy task as equivalent to solving a hard task.",
             },
             {
+              index: "03",
               title: "Static Capability Assumption",
               desc: "Assumes latent θ remains constant during the assessment without fatigue or learning effects.",
             },
             {
+              index: "04",
               title: "Synthetic & Unit-Test Scope",
               desc: "Evaluated on synthetic benchmark experiments, not yet calibrated on large-scale human cohort data.",
             },
           ].map((item) => (
             <div key={item.title} className="rounded-lg border border-border bg-card p-3.5 sm:p-4">
               <div className="flex items-center gap-2">
-                <AlertCircle className="h-3.5 w-3.5 text-muted-foreground" />
+                <span className="font-mono text-[0.68rem] font-bold text-muted-foreground">
+                  [{item.index}]
+                </span>
                 <h4 className="text-sm font-semibold text-foreground">{item.title}</h4>
               </div>
               <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
@@ -310,7 +315,6 @@ export function Chapter04AdaptiveLab() {
               disabled={isRunningTests}
               className="btn-text bg-surface font-semibold"
             >
-              <Terminal className="h-3.5 w-3.5" />
               {isRunningTests ? "EXECUTING..." : "RUN TEST SUITE →"}
             </button>
           </div>
@@ -381,53 +385,6 @@ export function Chapter04AdaptiveLab() {
                 <span className="font-bold">PASSED [100%]</span>
               </div>
               <div className="pt-2 font-bold text-foreground">=== 6 passed in 0.04s ===</div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* =========================================================================
-          SECTION 19 — THE FINAL PAGE & CENTRAL THESIS
-          ========================================================================= */}
-      <Section
-        id="section-19"
-        number="19"
-        title="What should the system learn next?"
-        lede="The continuous research loop."
-      >
-        <div className="my-8 sm:my-10 rounded-xl border border-border bg-card p-6 sm:p-8 md:p-12 text-center shadow-2xs">
-          <div className="max-w-2xl mx-auto space-y-5">
-            <p className="eyebrow">PROJECT SIGNAL &middot; CENTRAL RESEARCH THESIS</p>
-
-            <h3 className="text-xl sm:text-3xl md:text-4xl font-semibold text-foreground tracking-tight leading-tight">
-              "The goal is not to predict with certainty.
-              <br />
-              It is to become more informed with each observation."
-            </h3>
-
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-serif italic">
-              We began with an estimate.
-              <br />
-              We added uncertainty.
-              <br />
-              Now we learn how to choose evidence intelligently.
-            </p>
-
-            <div className="pt-3 flex justify-center">
-              <button
-                type="button"
-                onClick={() => {
-                  const el = document.getElementById("chapter-01");
-                  if (el) {
-                    const top = el.getBoundingClientRect().top + window.scrollY - 60;
-                    window.scrollTo({ top, behavior: "smooth" });
-                  }
-                }}
-                className="btn-text px-4 py-2 text-xs font-semibold"
-              >
-                <RefreshCw className="h-3.5 w-3.5" />
-                RETURN TO OPENING
-              </button>
             </div>
           </div>
         </div>

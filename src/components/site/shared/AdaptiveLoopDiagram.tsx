@@ -1,8 +1,8 @@
 export function AdaptiveLoopDiagram() {
   return (
     <div className="my-6 rounded-xl border border-border bg-surface/50 p-4 sm:p-6 md:p-7 shadow-2xs transition-colors">
-      <div className="mx-auto max-w-md">
-        <svg viewBox="0 0 460 260" className="w-full overflow-visible select-none">
+      <div className="mx-auto max-w-md overflow-hidden">
+        <svg viewBox="0 0 460 260" className="w-full h-auto max-w-full select-none">
           <defs>
             <marker
               id="notionArrow"

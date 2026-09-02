@@ -171,7 +171,6 @@
   font-size: 1.05em;
   line-height: 1.2;
   text-rendering: optimizeLegibility;
-  white-space: nowrap;
 }
 .katex-html {
   color: var(--color-foreground);
@@ -179,19 +178,51 @@
   white-space: nowrap;
 }
 .katex-display {
-  margin: 0.75rem 0;
-  padding: 0.25rem 0;
+  margin: 0.5rem 0 !important;
+  padding: 0.25rem 0 !important;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 .katex-display > .katex {
-  font-size: 1.25em;
+  font-size: 1.15em;
   text-align: center;
   white-space: nowrap;
+  display: inline-block;
 }
 .katex .base {
   margin-top: 1px;
   margin-bottom: 1px;
   white-space: nowrap;
 }
+
+.inline-math {
+  display: inline-flex;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  vertical-align: middle;
+}
+
+/* Custom minimal scrollbar for interactive equation containers */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

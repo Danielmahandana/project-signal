@@ -3,7 +3,6 @@ import { Chapter01Foundations } from "@/components/site/research/Chapter01Founda
 import { Chapter02Estimators } from "@/components/site/research/Chapter02Estimators";
 import { Chapter03Experiments } from "@/components/site/research/Chapter03Experiments";
 import { Chapter04AdaptiveLab } from "@/components/site/research/Chapter04AdaptiveLab";
-import { Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -53,14 +52,13 @@ function IndexPage() {
           HERO HEADER / PROLOGUE
           ========================================================================= */}
       <header className="relative mx-auto max-w-5xl px-4 sm:px-6 pt-3 sm:pt-4 pb-8 sm:pb-10">
-        {/* Notion Icon Badge */}
-        <div className="flex items-center gap-2">
-          <div className="flex h-6 sm:h-7 w-6 sm:w-7 items-center justify-center rounded border border-border bg-surface shadow-2xs">
-            <Sparkles className="h-3.5 sm:h-4 w-3.5 sm:w-4 text-foreground/80" />
-          </div>
-          <span className="eyebrow text-muted-foreground text-[0.62rem] sm:text-xs">
-            PROJECT SIGNAL &middot; RESEARCH PAPER
-          </span>
+        {/* Clean Typographic Monograph Metadata */}
+        <div className="flex flex-wrap items-center gap-2 font-mono text-[0.68rem] sm:text-xs tracking-wider">
+          <span className="font-semibold text-foreground">PROJECT SIGNAL</span>
+          <span className="text-muted-foreground/50">&middot;</span>
+          <span className="text-muted-foreground uppercase">RESEARCH MONOGRAPH</span>
+          <span className="text-muted-foreground/50">&middot;</span>
+          <span className="text-muted-foreground/80">PS-002B</span>
         </div>
 
         {/* Primary Page Title */}

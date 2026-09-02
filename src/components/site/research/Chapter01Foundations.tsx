@@ -4,8 +4,6 @@ import { M, Eq } from "@/components/site/Math";
 import { InspectDrawer, CodeSnippet } from "@/components/site/shared/InspectDrawer";
 import { EvidenceStream, type ObservationOutcome } from "@/components/site/shared/EvidenceStream";
 import { HiddenStateDiagram } from "@/components/site/shared/HiddenStateDiagram";
-import { Eye, Plus, RotateCcw } from "lucide-react";
-
 export function Chapter01Foundations() {
   const [openingObs, setOpeningObs] = useState<ObservationOutcome[]>([]);
   const [openingTheta, setOpeningTheta] = useState<number>(0.5);
@@ -84,7 +82,7 @@ export function Chapter01Foundations() {
             <div>
               <p className="eyebrow">INTERACTIVE DEMONSTRATION</p>
               <h3 className="mt-1 text-base sm:text-lg font-semibold text-foreground">
-                Observing the Inference Process Online
+                Interactive Inference: Sequential Updating in Real Time
               </h3>
             </div>
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
@@ -93,20 +91,17 @@ export function Chapter01Foundations() {
                 onClick={handleObserveNext}
                 className="btn-text bg-surface font-semibold"
               >
-                <Eye className="h-3.5 w-3.5" />
-                OBSERVE
+                OBSERVE →
               </button>
               <button type="button" onClick={() => handleAddObservation(1)} className="btn-text">
-                <Plus className="h-3.5 w-3.5" />
-                SUCCESS (✓)
+                + SUCCESS (✓)
               </button>
               <button
                 type="button"
                 onClick={() => handleAddObservation(0)}
                 className="btn-text text-muted-foreground"
               >
-                <Plus className="h-3.5 w-3.5" />
-                FAILURE (✕)
+                + FAILURE (✕)
               </button>
               <button
                 type="button"
@@ -114,8 +109,7 @@ export function Chapter01Foundations() {
                 className="btn-text text-muted-foreground"
                 title="Reset sequence"
               >
-                <RotateCcw className="h-3.5 w-3.5" />
-                RESET
+                RESET ↺
               </button>
             </div>
           </div>
@@ -128,7 +122,7 @@ export function Chapter01Foundations() {
             </div>
             <EvidenceStream
               sequence={openingObs}
-              emptyLabel="Click [ OBSERVE ] to generate the first evidence impulse."
+              emptyLabel="Click [ OBSERVE → ] to generate the first evidence impulse."
             />
           </div>
 
@@ -141,7 +135,7 @@ export function Chapter01Foundations() {
             <p className="mt-1.5 text-xs text-muted-foreground">
               {openingObs.length === 0
                 ? "Starting at neutral uninformative midpoint (0.500)."
-                : `Updated online from ${openingObs.length} empirical observation${openingObs.length === 1 ? "" : "s"}.`}
+                : `Sequentially updated from ${openingObs.length} empirical observation${openingObs.length === 1 ? "" : "s"}.`}
             </p>
           </div>
 
@@ -227,8 +221,8 @@ class Observation:
                 Exponential Moving Average
               </h4>
               <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
-                A simple online scalar estimator that shifts a point estimate with each observation
-                impulse.
+                A sequential scalar estimator that adjusts a single point estimate with each new
+                observation.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-border">

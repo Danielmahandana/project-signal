@@ -10,7 +10,8 @@ import {
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { ResearchChrome } from "@/components/site/shared/ResearchChrome";
+import { LabNavbar } from "@/components/site/shared/LabNavbar";
+import { LabFooter } from "@/components/site/shared/LabFooter";
 
 function NotFoundComponent() {
   return (
@@ -74,18 +75,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Project Signal — Interactive Research Laboratory" },
+      { title: "Capability Compass — Research Laboratory" },
       {
         name: "description",
         content:
-          "An interactive research instrument into evidence, Bayesian capability inference, and adaptive measurement.",
+          "We build systems to understand how people learn, work, and adapt. Research in probabilistic capability inference, skills intelligence, and adaptive cognitive systems.",
       },
-      { name: "author", content: "Systems Engineering Team at Darkroom" },
-      { property: "og:title", content: "Project Signal — Interactive Research Laboratory" },
+      { name: "author", content: "Capability Compass Research Team" },
+      { property: "og:title", content: "Capability Compass — Research Laboratory" },
       {
         property: "og:description",
         content:
-          "A research instrument into evidence, Bayesian capability inference, and adaptive measurement.",
+          "We build systems to understand how people learn, work, and adapt.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -126,11 +127,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ResearchChrome />
+      <LabNavbar />
       <main className="min-h-screen">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </main>
+      <LabFooter />
     </QueryClientProvider>
   );
 }

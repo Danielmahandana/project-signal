@@ -10,15 +10,35 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as EngineRouteImport } from './routes/engine'
 import { Route as ModelsRouteImport } from './routes/models'
+import { Route as NotesRouteImport } from './routes/notes'
+import { Route as PeopleRouteImport } from './routes/people'
+import { Route as PublicationsRouteImport } from './routes/publications'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as StatusRouteImport } from './routes/status'
+import { Route as SystemsRouteImport } from './routes/systems'
+import { Route as ResearchIndexRouteImport } from './routes/research/index'
+import { Route as ResearchCapabilityInferenceRouteImport } from './routes/research/capability-inference'
+import { Route as ResearchCognitiveAssessmentRouteImport } from './routes/research/cognitive-assessment'
+import { Route as ResearchSkillsIntelligenceRouteImport } from './routes/research/skills-intelligence'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EngineRoute = EngineRouteImport.update({
@@ -29,6 +49,21 @@ const EngineRoute = EngineRouteImport.update({
 const ModelsRoute = ModelsRouteImport.update({
   id: '/models',
   path: '/models',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotesRoute = NotesRouteImport.update({
+  id: '/notes',
+  path: '/notes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PeopleRoute = PeopleRouteImport.update({
+  id: '/people',
+  path: '/people',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublicationsRoute = PublicationsRouteImport.update({
+  id: '/publications',
+  path: '/publications',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResearchRoute = ResearchRouteImport.update({
@@ -46,54 +81,158 @@ const StatusRoute = StatusRouteImport.update({
   path: '/status',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SystemsRoute = SystemsRouteImport.update({
+  id: '/systems',
+  path: '/systems',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchIndexRoute = ResearchIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ResearchRoute,
+} as any)
+const ResearchCapabilityInferenceRoute =
+  ResearchCapabilityInferenceRouteImport.update({
+    id: '/capability-inference',
+    path: '/capability-inference',
+    getParentRoute: () => ResearchRoute,
+  } as any)
+const ResearchCognitiveAssessmentRoute =
+  ResearchCognitiveAssessmentRouteImport.update({
+    id: '/cognitive-assessment',
+    path: '/cognitive-assessment',
+    getParentRoute: () => ResearchRoute,
+  } as any)
+const ResearchSkillsIntelligenceRoute =
+  ResearchSkillsIntelligenceRouteImport.update({
+    id: '/skills-intelligence',
+    path: '/skills-intelligence',
+    getParentRoute: () => ResearchRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/engine': typeof EngineRoute
   '/models': typeof ModelsRoute
-  '/research': typeof ResearchRoute
+  '/notes': typeof NotesRoute
+  '/people': typeof PeopleRoute
+  '/publications': typeof PublicationsRoute
+  '/research': typeof ResearchRouteWithChildren
   '/roadmap': typeof RoadmapRoute
   '/status': typeof StatusRoute
+  '/systems': typeof SystemsRoute
+  '/research/capability-inference': typeof ResearchCapabilityInferenceRoute
+  '/research/cognitive-assessment': typeof ResearchCognitiveAssessmentRoute
+  '/research/skills-intelligence': typeof ResearchSkillsIntelligenceRoute
+  '/research/': typeof ResearchIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/engine': typeof EngineRoute
   '/models': typeof ModelsRoute
-  '/research': typeof ResearchRoute
+  '/notes': typeof NotesRoute
+  '/people': typeof PeopleRoute
+  '/publications': typeof PublicationsRoute
   '/roadmap': typeof RoadmapRoute
   '/status': typeof StatusRoute
+  '/systems': typeof SystemsRoute
+  '/research/capability-inference': typeof ResearchCapabilityInferenceRoute
+  '/research/cognitive-assessment': typeof ResearchCognitiveAssessmentRoute
+  '/research/skills-intelligence': typeof ResearchSkillsIntelligenceRoute
+  '/research': typeof ResearchIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRoute
   '/engine': typeof EngineRoute
   '/models': typeof ModelsRoute
-  '/research': typeof ResearchRoute
+  '/notes': typeof NotesRoute
+  '/people': typeof PeopleRoute
+  '/publications': typeof PublicationsRoute
+  '/research': typeof ResearchRouteWithChildren
   '/roadmap': typeof RoadmapRoute
   '/status': typeof StatusRoute
+  '/systems': typeof SystemsRoute
+  '/research/capability-inference': typeof ResearchCapabilityInferenceRoute
+  '/research/cognitive-assessment': typeof ResearchCognitiveAssessmentRoute
+  '/research/skills-intelligence': typeof ResearchSkillsIntelligenceRoute
+  '/research/': typeof ResearchIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/engine' | '/models' | '/research' | '/roadmap' | '/status'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/engine' | '/models' | '/research' | '/roadmap' | '/status'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
+    | '/about'
+    | '/blog'
     | '/engine'
     | '/models'
+    | '/notes'
+    | '/people'
+    | '/publications'
     | '/research'
     | '/roadmap'
     | '/status'
+    | '/systems'
+    | '/research/capability-inference'
+    | '/research/cognitive-assessment'
+    | '/research/skills-intelligence'
+    | '/research/'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/engine'
+    | '/models'
+    | '/notes'
+    | '/people'
+    | '/publications'
+    | '/roadmap'
+    | '/status'
+    | '/systems'
+    | '/research/capability-inference'
+    | '/research/cognitive-assessment'
+    | '/research/skills-intelligence'
+    | '/research'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/engine'
+    | '/models'
+    | '/notes'
+    | '/people'
+    | '/publications'
+    | '/research'
+    | '/roadmap'
+    | '/status'
+    | '/systems'
+    | '/research/capability-inference'
+    | '/research/cognitive-assessment'
+    | '/research/skills-intelligence'
+    | '/research/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRoute
   EngineRoute: typeof EngineRoute
   ModelsRoute: typeof ModelsRoute
-  ResearchRoute: typeof ResearchRoute
+  NotesRoute: typeof NotesRoute
+  PeopleRoute: typeof PeopleRoute
+  PublicationsRoute: typeof PublicationsRoute
+  ResearchRoute: typeof ResearchRouteWithChildren
   RoadmapRoute: typeof RoadmapRoute
   StatusRoute: typeof StatusRoute
+  SystemsRoute: typeof SystemsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -103,6 +242,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/engine': {
@@ -117,6 +270,27 @@ declare module '@tanstack/react-router' {
       path: '/models'
       fullPath: '/models'
       preLoaderRoute: typeof ModelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notes': {
+      id: '/notes'
+      path: '/notes'
+      fullPath: '/notes'
+      preLoaderRoute: typeof NotesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/people': {
+      id: '/people'
+      path: '/people'
+      fullPath: '/people'
+      preLoaderRoute: typeof PeopleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publications': {
+      id: '/publications'
+      path: '/publications'
+      fullPath: '/publications'
+      preLoaderRoute: typeof PublicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/research': {
@@ -140,16 +314,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StatusRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/systems': {
+      id: '/systems'
+      path: '/systems'
+      fullPath: '/systems'
+      preLoaderRoute: typeof SystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research/': {
+      id: '/research/'
+      path: '/'
+      fullPath: '/research/'
+      preLoaderRoute: typeof ResearchIndexRouteImport
+      parentRoute: typeof ResearchRoute
+    }
+    '/research/capability-inference': {
+      id: '/research/capability-inference'
+      path: '/capability-inference'
+      fullPath: '/research/capability-inference'
+      preLoaderRoute: typeof ResearchCapabilityInferenceRouteImport
+      parentRoute: typeof ResearchRoute
+    }
+    '/research/cognitive-assessment': {
+      id: '/research/cognitive-assessment'
+      path: '/cognitive-assessment'
+      fullPath: '/research/cognitive-assessment'
+      preLoaderRoute: typeof ResearchCognitiveAssessmentRouteImport
+      parentRoute: typeof ResearchRoute
+    }
+    '/research/skills-intelligence': {
+      id: '/research/skills-intelligence'
+      path: '/skills-intelligence'
+      fullPath: '/research/skills-intelligence'
+      preLoaderRoute: typeof ResearchSkillsIntelligenceRouteImport
+      parentRoute: typeof ResearchRoute
+    }
   }
 }
 
+interface ResearchRouteChildren {
+  ResearchCapabilityInferenceRoute: typeof ResearchCapabilityInferenceRoute
+  ResearchCognitiveAssessmentRoute: typeof ResearchCognitiveAssessmentRoute
+  ResearchSkillsIntelligenceRoute: typeof ResearchSkillsIntelligenceRoute
+  ResearchIndexRoute: typeof ResearchIndexRoute
+}
+
+const ResearchRouteChildren: ResearchRouteChildren = {
+  ResearchCapabilityInferenceRoute: ResearchCapabilityInferenceRoute,
+  ResearchCognitiveAssessmentRoute: ResearchCognitiveAssessmentRoute,
+  ResearchSkillsIntelligenceRoute: ResearchSkillsIntelligenceRoute,
+  ResearchIndexRoute: ResearchIndexRoute,
+}
+
+const ResearchRouteWithChildren = ResearchRoute._addFileChildren(
+  ResearchRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogRoute: BlogRoute,
   EngineRoute: EngineRoute,
   ModelsRoute: ModelsRoute,
-  ResearchRoute: ResearchRoute,
+  NotesRoute: NotesRoute,
+  PeopleRoute: PeopleRoute,
+  PublicationsRoute: PublicationsRoute,
+  ResearchRoute: ResearchRouteWithChildren,
   RoadmapRoute: RoadmapRoute,
   StatusRoute: StatusRoute,
+  SystemsRoute: SystemsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

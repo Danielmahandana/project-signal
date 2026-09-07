@@ -4,13 +4,13 @@ import { TEAM_MEMBERS, TeamMember } from "@/lib/researchData";
 export const Route = createFileRoute("/people")({
   head: () => ({
     meta: [
-      { title: "People & Contributors — Capability Compass Lab" },
+      { title: "People & Contributors — THE SOTA LAB" },
       {
         name: "description",
         content:
-          "Researchers, engineers, and practitioners working across data systems, probabilistic AI, and human capability measurement.",
+          "Researchers, engineers, and practitioners working across data systems, probabilistic AI, and human capability measurement at The Sota Lab.",
       },
-      { property: "og:title", content: "People & Contributors — Capability Compass Lab" },
+      { property: "og:title", content: "People & Contributors — THE SOTA LAB" },
     ],
   }),
   component: PeoplePage,
@@ -23,15 +23,16 @@ function PeoplePage() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
       {/* Header */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 pt-16 sm:pt-24 pb-10 border-b border-border/40">
-        <div className="max-w-3xl space-y-4">
-          <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-            Researchers &amp; Practitioners
+        <div className="max-w-4xl space-y-4">
+          <div className="flex items-center space-x-2 font-mono text-xs text-muted-foreground uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span>THE SOTA LAB &middot; RESEARCHERS &amp; PRACTITIONERS</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground font-sans">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-editorial-serif tracking-tight text-foreground leading-[1.05]">
             People
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-sans">
-            Researchers, engineers, and practitioners working across probabilistic AI, data topologies, and human capability.
+          <p className="text-base sm:text-xl text-muted-foreground leading-relaxed font-sans max-w-3xl">
+            Researchers, engineers, and practitioners working across probabilistic AI, data topologies, and human capability measurement.
           </p>
         </div>
       </section>

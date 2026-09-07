@@ -4,13 +4,13 @@ import { NOW_ENTRIES } from "@/lib/researchData";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About & Methodology — Capability Compass Lab" },
+      { title: "About & Methodology — THE SOTA LAB" },
       {
         name: "description",
         content:
-          "We build to understand. The research philosophy, principles, and ongoing roadmap of the Capability Compass research lab.",
+          "We build to understand. The research philosophy, principles, and ongoing roadmap of The Sota Lab.",
       },
-      { property: "og:title", content: "About & Methodology — Capability Compass Lab" },
+      { property: "og:title", content: "About & Methodology — THE SOTA LAB" },
     ],
   }),
   component: AboutPage,
@@ -58,18 +58,19 @@ function AboutPage() {
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
       {/* Header */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 pt-16 sm:pt-24 pb-10 border-b border-border/40">
+      <section className="mx-auto max-w-5xl px-4 sm:px-6 pt-16 sm:pt-24 pb-12 border-b border-border/40">
         <div className="space-y-4 max-w-3xl">
-          <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-            About the Lab &middot; Mission &amp; Methodology
+          <div className="flex items-center space-x-2 font-mono text-xs text-muted-foreground uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span>THE SOTA LAB &middot; MISSION &amp; METHODOLOGY</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground font-sans">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-editorial-serif tracking-tight text-foreground leading-[1.05]">
             We build to understand.
           </h1>
 
           <p className="text-lg sm:text-2xl text-muted-foreground leading-relaxed font-sans font-normal">
-            We are a research and engineering team investigating how computational systems can help us understand people, skills, and intelligent behavior.
+            We are a research and engineering laboratory investigating how computational systems can help us understand people, skills, and intelligent behavior under uncertainty.
           </p>
 
           <div className="flex items-center space-x-3 font-mono text-xs text-muted-foreground pt-2">
@@ -90,7 +91,7 @@ function AboutPage() {
           <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block">
             01 / Lab Methodology
           </span>
-          <h2 className="text-2xl sm:text-4xl font-bold font-sans tracking-tight text-foreground">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-editorial-serif tracking-tight text-foreground">
             The Continuous Inquiry Loop
           </h2>
 
@@ -102,7 +103,7 @@ function AboutPage() {
               <span>&rarr;</span>
               <span>System</span>
               <span>&rarr;</span>
-              <span className="text-[#10A37F] font-semibold">Evidence</span>
+              <span className="text-accent font-semibold">Evidence</span>
               <span>&rarr;</span>
               <span>Result</span>
               <span>&rarr;</span>
@@ -120,7 +121,7 @@ function AboutPage() {
           <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block">
             02 / Core Discipline
           </span>
-          <h2 className="text-2xl sm:text-4xl font-bold font-sans tracking-tight text-foreground">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-editorial-serif tracking-tight text-foreground">
             Five Research Principles
           </h2>
 
@@ -128,9 +129,9 @@ function AboutPage() {
             {PRINCIPLES.map((p) => (
               <div key={p.number} className="py-8 space-y-2 max-w-3xl">
                 <div className="flex items-center space-x-2 font-mono text-xs">
-                  <span className="font-bold text-[#10A37F]">{p.number}</span>
+                  <span className="font-bold text-accent">{p.number}</span>
                   <span className="text-muted-foreground">&middot;</span>
-                  <span className="font-sans font-bold text-lg text-foreground">{p.title}</span>
+                  <span className="font-editorial-serif font-bold text-xl text-foreground">{p.title}</span>
                 </div>
 
                 <div className="font-sans text-sm text-foreground font-medium">
@@ -150,7 +151,7 @@ function AboutPage() {
           <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block">
             03 / Domain Context
           </span>
-          <h2 className="text-2xl sm:text-4xl font-bold text-foreground tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-editorial-serif text-foreground tracking-tight">
             Grounded in TVET and Developing Labour Markets
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed">
@@ -165,10 +166,10 @@ function AboutPage() {
         <section id="now" className="space-y-6 pt-10 border-t border-border/40">
           <div className="flex items-baseline justify-between">
             <div className="space-y-1">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#10A37F]">
+              <span className="font-mono text-xs uppercase tracking-wider text-accent">
                 Active Exploration
               </span>
-              <h2 className="text-2xl sm:text-4xl font-bold font-sans tracking-tight text-foreground">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-editorial-serif tracking-tight text-foreground">
                 Now &middot; September 2026
               </h2>
             </div>

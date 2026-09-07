@@ -6,13 +6,13 @@ import { LAB_NOTES, LabNote } from "@/lib/researchData";
 export const Route = createFileRoute("/notes")({
   head: () => ({
     meta: [
-      { title: "Lab Notebook & Notes — Capability Compass Lab" },
+      { title: "Lab Notebook & Notes — THE SOTA LAB" },
       {
         name: "description",
         content:
-          "Short pieces of ongoing thinking, field notes, and exploratory reflections from the Capability Compass research lab.",
+          "Short pieces of ongoing thinking, field notes, and exploratory reflections from The Sota Lab.",
       },
-      { property: "og:title", content: "Lab Notebook & Notes — Capability Compass Lab" },
+      { property: "og:title", content: "Lab Notebook & Notes — THE SOTA LAB" },
     ],
   }),
   component: NotesPage,
@@ -24,17 +24,18 @@ function NotesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
       {/* Header */}
-      <section className="mx-auto max-w-5xl px-4 sm:px-6 pt-12 sm:pt-16 pb-8 border-b border-border">
+      <section className="mx-auto max-w-5xl px-4 sm:px-6 pt-12 sm:pt-16 pb-8 border-b border-border/40">
         <div className="space-y-3">
           <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
-            <span className="font-semibold text-foreground">LAB NOTEBOOK</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span className="font-semibold text-foreground uppercase tracking-widest">THE SOTA LAB NOTEBOOK</span>
             <span>&middot;</span>
-            <span>THINKING IN PROGRESS</span>
+            <span className="uppercase tracking-wider">FIELD OBSERVATIONS</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-editorial-serif tracking-tight text-foreground">
             Notes &amp; Dispatches
           </h1>
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl font-sans">
             Short, informal essays documenting theoretical dead-ends, empirical surprises, and evolving perspectives on skills intelligence and capability measurement.
           </p>
         </div>

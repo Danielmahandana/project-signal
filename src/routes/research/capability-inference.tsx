@@ -6,17 +6,18 @@ import { Chapter01Foundations } from "@/components/site/research/Chapter01Founda
 import { Chapter02Estimators } from "@/components/site/research/Chapter02Estimators";
 import { Chapter03Experiments } from "@/components/site/research/Chapter03Experiments";
 import { Chapter04AdaptiveLab } from "@/components/site/research/Chapter04AdaptiveLab";
+import { ParallaxImage } from "@/components/sota/ParallaxImage";
 
 export const Route = createFileRoute("/research/capability-inference")({
   head: () => ({
     meta: [
-      { title: "Capability Inference — Research Laboratory" },
+      { title: "Capability Inference — THE SOTA LAB" },
       {
         name: "description",
         content:
-          "Probabilistic modelling of latent human capability from sparse observation streams. An interactive research monograph.",
+          "Probabilistic modelling of latent human capability from sparse observation streams. An interactive research monograph by The Sota Lab.",
       },
-      { property: "og:title", content: "Capability Inference — Research Laboratory" },
+      { property: "og:title", content: "Capability Inference — THE SOTA LAB" },
     ],
   }),
   component: CapabilityInferencePage,
@@ -32,10 +33,10 @@ export function CapabilityInferencePage() {
   const bibtexCode = `@techreport{mahandana2026probabilistic,
   author    = {Mahandana, Daniel and M., Narvin and K., Thabang},
   title     = {Probabilistic Modelling of Latent Human Capability from Sparse Observation Streams},
-  institution = {Capability Compass Research Lab},
+  institution = {The Sota Lab},
   year      = {2026},
-  number    = {PS-TR-2026-01},
-  url       = {https://capability-compass.lovable.app/research/capability-inference}
+  number    = {SOTA-TR-2026-01},
+  url       = {https://sota-lab.lovable.app/research/capability-inference}
 }`;
 
   const copyBibtex = () => {
@@ -74,15 +75,19 @@ export function CapabilityInferencePage() {
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
       {/* =========================================================================
-          TOP HERO IMAGE (Cinematic Project Banner as requested)
+          TOP HERO IMAGE (Cinematic Project Banner with Parallax)
           ========================================================================= */}
-      <div className="relative w-full h-64 sm:h-96 md:h-[460px] overflow-hidden select-none bg-surface">
-        <img
+      <div className="relative w-full h-64 sm:h-96 md:h-[480px] overflow-hidden select-none bg-surface">
+        <ParallaxImage
           src="/header-brain.jpeg"
           alt="Neural topology and cognitive inference visualization"
-          className="w-full h-full object-cover object-center"
+          containerClassName="w-full h-full"
+          speed={0.05}
+          zoomOnHover={false}
+          enableTilt
+          cursorText="STUDY"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent pointer-events-none" />
       </div>
 
       {/* =========================================================================
@@ -98,13 +103,13 @@ export function CapabilityInferencePage() {
             <span className="text-foreground">Capability Inference</span>
           </div>
 
-          <div className="font-mono text-xs text-muted-foreground">
-            <span className="text-foreground uppercase tracking-widest font-semibold">PS-TR-2026-01</span>
-            <span> &middot; </span>
+          <div className="font-mono text-xs text-muted-foreground flex items-center space-x-2">
+            <span className="text-accent uppercase tracking-widest font-semibold">SOTA-TR-2026-01</span>
+            <span>&middot;</span>
             <span>AI Systems &middot; September 2026</span>
           </div>
 
-          <h1 className="text-3xl sm:text-6xl font-bold tracking-tight text-foreground font-sans">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-editorial-serif tracking-tight text-foreground leading-[1.06]">
             Capability Inference
           </h1>
 
@@ -113,7 +118,7 @@ export function CapabilityInferencePage() {
           </p>
 
           <div className="pt-2 font-mono text-xs text-muted-foreground">
-            Daniel Mahandana, Narvin M., Thabang K.
+            Daniel Mahandana, Narvin M., Thabang K. &middot; The Sota Lab
           </div>
         </div>
 

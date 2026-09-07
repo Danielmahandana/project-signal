@@ -12,6 +12,7 @@ import { type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { LabNavbar } from "@/components/site/shared/LabNavbar";
 import { LabFooter } from "@/components/site/shared/LabFooter";
+import { CustomCursor } from "@/components/sota/CustomCursor";
 
 function NotFoundComponent() {
   return (
@@ -75,18 +76,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Capability Compass — Research Laboratory" },
+      { title: "THE SOTA LAB — State of the Art Research" },
       {
         name: "description",
         content:
-          "We build systems to understand how people learn, work, and adapt. Research in probabilistic capability inference, skills intelligence, and adaptive cognitive systems.",
+          "The Sota Lab investigates probabilistic capability inference, skills intelligence, and human adaptation under uncertainty. State of the Art research in AI systems and labor markets.",
       },
-      { name: "author", content: "Capability Compass Research Team" },
-      { property: "og:title", content: "Capability Compass — Research Laboratory" },
+      { name: "author", content: "The Sota Lab Research Group" },
+      { property: "og:title", content: "THE SOTA LAB — State of the Art Research" },
       {
         property: "og:description",
         content:
-          "We build systems to understand how people learn, work, and adapt.",
+          "State of the Art research: understanding how people learn, work, and adapt through online inference and structured competency topologies.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -115,6 +116,10 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        {/* Subtle tactile film grain texture */}
+        <div className="sota-grain" aria-hidden="true" />
+        {/* Contextual Desktop Custom Cursor */}
+        <CustomCursor />
         {children}
         <Scripts />
       </body>

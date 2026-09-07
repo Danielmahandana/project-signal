@@ -222,10 +222,10 @@ export const PUBLICATIONS: Publication[] = [
     bibtex: `@techreport{mahandana2026probabilistic,
   author    = {Mahandana, Daniel and M., Narvin and K., Thabang},
   title     = {Probabilistic Modelling of Latent Human Capability from Sparse Observation Streams},
-  institution = {Capability Compass Research Lab},
+  institution = {The Sota Lab},
   year      = {2026},
-  number    = {PS-TR-2026-01},
-  url       = {https://capability-compass.lovable.app/research/capability-inference}
+  number    = {SOTA-TR-2026-01},
+  url       = {https://sota-lab.lovable.app/research/capability-inference}
 }`,
   },
   {
@@ -244,7 +244,7 @@ export const PUBLICATIONS: Publication[] = [
     bibtex: `@article{mahandana2026skillsintelligence,
   author  = {Mahandana, Daniel and Systems Lab Group},
   title   = {Skills Intelligence in TVET Ecosystems: Contextual Extraction and Standardized Ontologies},
-  journal = {Capability Compass Working Papers},
+  journal = {The Sota Lab Working Papers},
   year    = {2026},
   volume  = {2},
   number  = {1}
@@ -265,7 +265,7 @@ export const PUBLICATIONS: Publication[] = [
     bibtex: `@techreport{systems2026adaptive,
   author    = {Systems Engineering Team and Mahandana, Daniel},
   title     = {Adaptive Measurement via Maximum Information-Gain Item Routing},
-  institution = {Capability Compass Research Lab},
+  institution = {The Sota Lab},
   year      = {2026}
 }`,
   },

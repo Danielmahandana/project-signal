@@ -5,13 +5,13 @@ import { LAB_NOTES, LabNote } from "@/lib/researchData";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Blog & Dispatches — Capability Compass Lab" },
+      { title: "Dispatches & Essays — THE SOTA LAB" },
       {
         name: "description",
         content:
-          "Dispatches, essays, and engineering notes on probabilistic inference, skills taxonomies, and human capability measurement.",
+          "Dispatches, essays, and engineering notes on probabilistic inference, skills taxonomies, and human capability measurement by The Sota Lab.",
       },
-      { property: "og:title", content: "Blog & Dispatches — Capability Compass Lab" },
+      { property: "og:title", content: "Dispatches & Essays — THE SOTA LAB" },
     ],
   }),
   component: BlogPage,
@@ -33,13 +33,14 @@ function BlogPage() {
       {/* Editorial Header */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 pt-16 sm:pt-24 pb-10 border-b border-border/40">
         <div className="space-y-4">
-          <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-            Dispatches &amp; Essays
+          <div className="flex items-center space-x-2 font-mono text-xs text-muted-foreground uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span>THE SOTA LAB &middot; DISPATCHES &amp; THEORETICAL ESSAYS</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground">
-            Blog
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-editorial-serif tracking-tight text-foreground leading-[1.05]">
+            Dispatches
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl font-normal leading-relaxed">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-2xl font-normal leading-relaxed font-sans">
             Ongoing thoughts, theoretical inquiries, and engineering notes from our researchers and engineers.
           </p>
         </div>

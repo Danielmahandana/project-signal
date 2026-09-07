@@ -2,17 +2,18 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AdaptiveLoopDiagram } from "@/components/site/shared/AdaptiveLoopDiagram";
 import { Chapter04AdaptiveLab } from "@/components/site/research/Chapter04AdaptiveLab";
+import { ParallaxImage } from "@/components/sota/ParallaxImage";
 
 export const Route = createFileRoute("/research/cognitive-assessment")({
   head: () => ({
     meta: [
-      { title: "Cognitive Assessment Engine — Capability Compass Lab" },
+      { title: "Cognitive Assessment Engine — THE SOTA LAB" },
       {
         name: "description",
         content:
-          "Designing computational systems that interact with human reasoning. Computerized Adaptive Testing (CAT) via maximum Fisher information gain.",
+          "Designing computational systems that interact with human reasoning. Computerized Adaptive Testing (CAT) via maximum Fisher information gain by The Sota Lab.",
       },
-      { property: "og:title", content: "Cognitive Assessment Engine — Capability Compass Lab" },
+      { property: "og:title", content: "Cognitive Assessment Engine — THE SOTA LAB" },
     ],
   }),
   component: CognitiveAssessmentPage,
@@ -24,9 +25,9 @@ function CognitiveAssessmentPage() {
   const bibtex = `@techreport{systems2026adaptive,
   author    = {Systems Engineering Team and Mahandana, Daniel},
   title     = {Adaptive Measurement via Maximum Information-Gain Item Routing},
-  institution = {Capability Compass Research Lab},
+  institution = {The Sota Lab},
   year      = {2026},
-  url       = {https://capability-compass.lovable.app/research/cognitive-assessment}
+  url       = {https://sota-lab.lovable.app/research/cognitive-assessment}
 }`;
 
   const copy = () => {
@@ -40,13 +41,17 @@ function CognitiveAssessmentPage() {
       {/* =========================================================================
           TOP HERO IMAGE (Cinematic Project Banner)
           ========================================================================= */}
-      <div className="relative w-full h-64 sm:h-96 md:h-[460px] overflow-hidden select-none bg-surface">
-        <img
-          src="/header-brain.jpeg"
+      <div className="relative w-full h-64 sm:h-96 md:h-[480px] overflow-hidden select-none bg-surface">
+        <ParallaxImage
+          src="/new.jpeg"
           alt="Cognitive architecture and neural item routing"
-          className="w-full h-full object-cover object-center"
+          containerClassName="w-full h-full"
+          speed={0.05}
+          zoomOnHover={false}
+          enableTilt
+          cursorText="STUDY"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent pointer-events-none" />
       </div>
 
       {/* =========================================================================
@@ -62,13 +67,13 @@ function CognitiveAssessmentPage() {
             <span className="text-foreground">Cognitive Assessment</span>
           </div>
 
-          <div className="font-mono text-xs text-muted-foreground">
-            <span className="text-foreground uppercase tracking-widest font-semibold">Technical Note</span>
-            <span> &middot; </span>
+          <div className="font-mono text-xs text-muted-foreground flex items-center space-x-2">
+            <span className="text-accent uppercase tracking-widest font-semibold">SOTA-TN-2026-03</span>
+            <span>&middot;</span>
             <span>Human Capability &middot; 2026</span>
           </div>
 
-          <h1 className="text-3xl sm:text-6xl font-bold tracking-tight text-foreground font-sans">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-editorial-serif tracking-tight text-foreground leading-[1.06]">
             Cognitive Assessment Engine
           </h1>
 
@@ -77,7 +82,7 @@ function CognitiveAssessmentPage() {
           </p>
 
           <div className="pt-2 font-mono text-xs text-muted-foreground">
-            Systems Engineering Team &middot; Daniel Mahandana
+            Systems Engineering Team &middot; Daniel Mahandana &middot; The Sota Lab
           </div>
         </div>
       </div>

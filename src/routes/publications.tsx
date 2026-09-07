@@ -5,13 +5,13 @@ import { PUBLICATIONS, Publication } from "@/lib/researchData";
 export const Route = createFileRoute("/publications")({
   head: () => ({
     meta: [
-      { title: "Publications & Reports — Capability Compass Lab" },
+      { title: "Publications & Reports — THE SOTA LAB" },
       {
         name: "description",
         content:
-          "Preprints, technical reports, and working papers on Bayesian capability inference, competency ontologies, and adaptive testing.",
+          "Preprints, technical reports, and working papers on Bayesian capability inference, competency ontologies, and adaptive testing by The Sota Lab.",
       },
-      { property: "og:title", content: "Publications & Reports — Capability Compass Lab" },
+      { property: "og:title", content: "Publications & Reports — THE SOTA LAB" },
     ],
   }),
   component: PublicationsPage,
@@ -45,15 +45,16 @@ function PublicationsPage() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
       {/* Header */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-10 border-b border-border/40">
-        <div className="max-w-3xl space-y-4">
-          <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-            Scholarly Output &middot; Technical Reports &amp; Papers
+        <div className="max-w-4xl space-y-4">
+          <div className="flex items-center space-x-2 font-mono text-xs text-muted-foreground uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span>THE SOTA LAB &middot; SCHOLARLY ARCHIVE &amp; TECHNICAL MONOGRAPHS</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground font-sans">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-editorial-serif tracking-tight text-foreground leading-[1.05]">
             Publications
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-sans">
-            Methodology notes, preprints, and open technical reports released by the Capability Compass research lab.
+          <p className="text-base sm:text-xl text-muted-foreground leading-relaxed font-sans max-w-3xl">
+            Methodology notes, preprints, and open technical reports released by The Sota Lab. All code, datasets, and mathematical formalisms are open for peer reproduction.
           </p>
         </div>
       </section>

@@ -7,13 +7,13 @@ import { Chapter02Estimators } from "@/components/site/research/Chapter02Estimat
 export const Route = createFileRoute("/systems")({
   head: () => ({
     meta: [
-      { title: "Systems & Models — Capability Compass Lab" },
+      { title: "Systems & Models — THE SOTA LAB" },
       {
         name: "description",
         content:
-          "Explorable research systems, interactive probabilistic kernels, NLP pipelines, and open benchmarks developed by the lab.",
+          "Explorable research systems, interactive probabilistic kernels, NLP pipelines, and open benchmarks developed by The Sota Lab.",
       },
-      { property: "og:title", content: "Systems & Models — Capability Compass Lab" },
+      { property: "og:title", content: "Systems & Models — THE SOTA LAB" },
     ],
   }),
   component: SystemsPage,
@@ -26,14 +26,15 @@ function SystemsPage() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
       {/* Header */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 pb-10 border-b border-border/40">
-        <div className="max-w-3xl space-y-4">
-          <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-            Systems &amp; Instruments
+        <div className="max-w-4xl space-y-4">
+          <div className="flex items-center space-x-2 font-mono text-xs text-muted-foreground uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span>THE SOTA LAB &middot; COMPUTATIONAL INSTRUMENTS &amp; BENCHMARKS</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground font-sans">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-editorial-serif tracking-tight text-foreground leading-[1.05]">
             Interactive Systems
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed font-sans">
+          <p className="text-base sm:text-xl text-muted-foreground leading-relaxed font-sans max-w-3xl">
             We build to understand. Our research systems are explorable instruments that expose transformations from input to representation to inference.
           </p>
         </div>

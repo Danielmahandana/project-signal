@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "katex/dist/katex.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Geist:wght@300;400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -9,10 +10,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-sans:
-    "Inter", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-serif: "Newsreader", "Lyon Text", Georgia, Cambria, serif;
+  --font-serif: "Instrument Serif", "Newsreader", "Georgia", serif;
+  --font-display: "Instrument Serif", "Newsreader", "Georgia", serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
@@ -37,29 +38,49 @@
 }
 
 :root {
-  --radius: 0.375rem;
-  /* Research Lab Minimal Palette (Off-white / Graphite / Restrained Accent #10A37F) */
-  --background: #fafaf8;
-  --foreground: #111111;
-  --surface: #f3f3f0;
+  --radius: 0.25rem;
+  /* SOTA LAB Brand Tokens (Google DeepMind Inspired Editorial Palette) */
+  --sota-background: #fafaf8;
+  --sota-foreground: #111111;
+  --sota-surface: #f4f3ef;
+  --sota-muted: #666666;
+  --sota-accent: #0da176;
+  --sota-accent-subtle: rgba(13, 161, 118, 0.08);
+  --sota-border: #e4e3dc;
+  --sota-serif: "Instrument Serif", "Newsreader", Georgia, serif;
+  --sota-sans: "Geist", "Inter", -apple-system, sans-serif;
+  --sota-mono: "IBM Plex Mono", SFMono-Regular, monospace;
+  --sota-radius: 4px;
+  --sota-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Motion Duration System */
+  --motion-micro: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-interaction: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-section: 750ms cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-cinematic: 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Base mappings */
+  --background: var(--sota-background);
+  --foreground: var(--sota-foreground);
+  --surface: var(--sota-surface);
   --card: #ffffff;
   --card-foreground: #111111;
   --popover: #ffffff;
   --popover-foreground: #111111;
   --primary: #111111;
   --primary-foreground: #ffffff;
-  --secondary: #ecebe6;
-  --secondary-foreground: #222222;
-  --muted: #f1f0eb;
-  --muted-foreground: #6b6b6b;
-  --accent: #10a37f;
+  --secondary: #eeebe3;
+  --secondary-foreground: #1a1a1a;
+  --muted: #f2f1eb;
+  --muted-foreground: var(--sota-muted);
+  --accent: var(--sota-accent);
   --accent-foreground: #ffffff;
   --destructive: #eb5757;
   --destructive-foreground: #ffffff;
-  --border: #e5e5e2;
-  --input: #e5e5e2;
+  --border: var(--sota-border);
+  --input: var(--sota-border);
   --ring: #111111;
-  --notion-accent: #10a37f;
+  --notion-accent: var(--sota-accent);
   --svg-stroke: #111111;
   --svg-stroke-muted: #d0cfcb;
   --svg-bg: #ffffff;
@@ -67,31 +88,39 @@
 
 .dark,
 :root[class~="dark"] {
-  /* Research Lab Dark Minimal Palette */
-  --background: #0d0e10;
-  --foreground: #ededed;
-  --surface: #141618;
-  --card: #141618;
-  --card-foreground: #ededed;
-  --popover: #181a1d;
-  --popover-foreground: #ededed;
-  --primary: #ededed;
-  --primary-foreground: #0d0e10;
-  --secondary: #1f2225;
-  --secondary-foreground: #ededed;
-  --muted: #1a1c1f;
-  --muted-foreground: #8e8e93;
-  --accent: #10a37f;
-  --accent-foreground: #ffffff;
+  /* SOTA LAB Dark Palette (Deep obsidian / slate with restrained emerald) */
+  --sota-background: #090a0c;
+  --sota-foreground: #ededeb;
+  --sota-surface: #111317;
+  --sota-muted: #8a8d91;
+  --sota-accent: #1cd396;
+  --sota-accent-subtle: rgba(28, 211, 150, 0.12);
+  --sota-border: #1f2228;
+
+  --background: var(--sota-background);
+  --foreground: var(--sota-foreground);
+  --surface: var(--sota-surface);
+  --card: #121418;
+  --card-foreground: #ededeb;
+  --popover: #15181d;
+  --popover-foreground: #ededeb;
+  --primary: #ededeb;
+  --primary-foreground: #090a0c;
+  --secondary: #1a1d22;
+  --secondary-foreground: #ededeb;
+  --muted: #16181d;
+  --muted-foreground: var(--sota-muted);
+  --accent: var(--sota-accent);
+  --accent-foreground: #090a0c;
   --destructive: #e06c75;
   --destructive-foreground: #ffffff;
-  --border: #24272b;
-  --input: #24272b;
-  --ring: #ededed;
-  --notion-accent: #10a37f;
-  --svg-stroke: #ededed;
+  --border: var(--sota-border);
+  --input: var(--sota-border);
+  --ring: #ededeb;
+  --notion-accent: var(--sota-accent);
+  --svg-stroke: #ededeb;
   --svg-stroke-muted: #2f343a;
-  --svg-bg: #141618;
+  --svg-bg: #111317;
 }
 
 @layer base {
@@ -117,8 +146,74 @@
   h4 {
     letter-spacing: -0.025em;
     color: var(--color-foreground);
-    font-weight: 600;
+    font-weight: 500;
   }
+}
+
+/* SOTA Editorial Display Typography */
+.font-editorial-serif {
+  font-family: var(--sota-serif);
+  letter-spacing: -0.015em;
+}
+
+.text-hero-display {
+  font-family: var(--sota-serif);
+  font-size: clamp(3.2rem, 7.5vw, 7.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+.text-editorial-title {
+  font-family: var(--sota-serif);
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.text-section-display {
+  font-family: var(--sota-serif);
+  font-size: clamp(1.75rem, 3.5vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+.text-meta {
+  font-family: var(--sota-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+}
+
+/* Tactile photographic grain layer */
+.sota-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.dark .sota-grain {
+  opacity: 0.038;
+}
+
+/* Subtle magnetic transition */
+.magnetic-element {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Gooey Nav filter container */
+.gooey-filter {
+  filter: url('#gooey-effect');
 }
 
 .dark h1,

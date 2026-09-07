@@ -2,17 +2,18 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SkillsPipelineWidget } from "@/components/site/shared/SkillsPipelineWidget";
 import { FailureCaseCard } from "@/components/site/shared/FailureCaseCard";
+import { ParallaxImage } from "@/components/sota/ParallaxImage";
 
 export const Route = createFileRoute("/research/skills-intelligence")({
   head: () => ({
     meta: [
-      { title: "Skills Intelligence — Capability Compass Lab" },
+      { title: "Skills Intelligence — THE SOTA LAB" },
       {
         name: "description",
         content:
-          "Understanding what people can do from unstructured evidence. Contextual token extraction and ontology projection across ESCO and OFO frameworks.",
+          "Understanding what people can do from unstructured evidence. Contextual token extraction and ontology projection across ESCO and OFO frameworks by The Sota Lab.",
       },
-      { property: "og:title", content: "Skills Intelligence — Capability Compass Lab" },
+      { property: "og:title", content: "Skills Intelligence — THE SOTA LAB" },
     ],
   }),
   component: SkillsIntelligencePage,
@@ -24,11 +25,11 @@ function SkillsIntelligencePage() {
   const bibtex = `@article{mahandana2026skillsintelligence,
   author  = {Mahandana, Daniel and Systems Lab Group},
   title   = {Skills Intelligence in TVET Ecosystems: Contextual Extraction and Standardized Ontologies},
-  journal = {Capability Compass Working Papers},
+  journal = {The Sota Lab Working Papers},
   year    = {2026},
   volume  = {2},
   number  = {1},
-  url     = {https://capability-compass.lovable.app/research/skills-intelligence}
+  url     = {https://sota-lab.lovable.app/research/skills-intelligence}
 }`;
 
   const copy = () => {
@@ -42,13 +43,17 @@ function SkillsIntelligencePage() {
       {/* =========================================================================
           TOP HERO IMAGE (Cinematic Project Banner)
           ========================================================================= */}
-      <div className="relative w-full h-64 sm:h-96 md:h-[460px] overflow-hidden select-none bg-surface">
-        <img
+      <div className="relative w-full h-64 sm:h-96 md:h-[480px] overflow-hidden select-none bg-surface">
+        <ParallaxImage
           src="/footer-butterfly.jpeg"
           alt="Topological emergence of skills and competency graphs"
-          className="w-full h-full object-cover object-center"
+          containerClassName="w-full h-full"
+          speed={0.05}
+          zoomOnHover={false}
+          enableTilt
+          cursorText="STUDY"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent pointer-events-none" />
       </div>
 
       {/* =========================================================================
@@ -64,13 +69,13 @@ function SkillsIntelligencePage() {
             <span className="text-foreground">Skills Intelligence</span>
           </div>
 
-          <div className="font-mono text-xs text-muted-foreground">
-            <span className="text-foreground uppercase tracking-widest font-semibold">Working Paper</span>
-            <span> &middot; </span>
+          <div className="font-mono text-xs text-muted-foreground flex items-center space-x-2">
+            <span className="text-accent uppercase tracking-widest font-semibold">SOTA-WP-2026-02</span>
+            <span>&middot;</span>
             <span>Data Topologies &middot; 2026</span>
           </div>
 
-          <h1 className="text-3xl sm:text-6xl font-bold tracking-tight text-foreground font-sans">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-editorial-serif tracking-tight text-foreground leading-[1.06]">
             Skills Intelligence
           </h1>
 
@@ -79,7 +84,7 @@ function SkillsIntelligencePage() {
           </p>
 
           <div className="pt-2 font-mono text-xs text-muted-foreground">
-            Daniel Mahandana &middot; Systems Lab Group
+            Daniel Mahandana &middot; Systems Lab Group &middot; The Sota Lab
           </div>
         </div>
       </div>

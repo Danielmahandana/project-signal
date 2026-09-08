@@ -45,7 +45,7 @@ function SkillsIntelligencePage() {
           ========================================================================= */}
       <div className="relative w-full h-64 sm:h-96 md:h-[480px] overflow-hidden select-none bg-surface">
         <ParallaxImage
-          src="/footer-butterfly.jpeg"
+          src="/topological-graph.jpg"
           alt="Topological emergence of skills and competency graphs"
           containerClassName="w-full h-full"
           speed={0.05}

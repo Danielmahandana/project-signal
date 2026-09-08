@@ -43,8 +43,8 @@ function CognitiveAssessmentPage() {
           ========================================================================= */}
       <div className="relative w-full h-64 sm:h-96 md:h-[480px] overflow-hidden select-none bg-surface">
         <ParallaxImage
-          src="/new.jpeg"
-          alt="Cognitive architecture and neural item routing"
+          src="/cognitive-lens.jpg"
+          alt="Cognitive architecture and adaptive item routing"
           containerClassName="w-full h-full"
           speed={0.05}
           zoomOnHover={false}

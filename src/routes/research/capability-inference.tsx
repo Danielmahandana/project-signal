@@ -25,7 +25,7 @@ export const Route = createFileRoute("/research/capability-inference")({
 
 type ProjectView = "overview" | "system" | "experiments" | "monograph";
 
-export function CapabilityInferencePage() {
+function CapabilityInferencePage() {
   const [activeTab, setActiveTab] = useState<ProjectView>("overview");
   const [copiedBibtex, setCopiedBibtex] = useState<boolean>(false);
   const [selectedSubsystem, setSelectedSubsystem] = useState<number>(0);
@@ -79,8 +79,8 @@ export function CapabilityInferencePage() {
           ========================================================================= */}
       <div className="relative w-full h-64 sm:h-96 md:h-[480px] overflow-hidden select-none bg-surface">
         <ParallaxImage
-          src="/header-brain.jpeg"
-          alt="Neural topology and cognitive inference visualization"
+          src="/manifold.jpg"
+          alt="Neural topology and Bayesian capability manifold"
           containerClassName="w-full h-full"
           speed={0.05}
           zoomOnHover={false}

@@ -139,12 +139,14 @@ function ResearchIndexPage() {
               // Pick associated imagery
               const imageSrc =
                 project.slug === "capability-inference"
-                  ? "/header-brain.jpeg"
+                  ? "/manifold.jpg"
                   : project.slug === "skills-intelligence"
-                  ? "/footer-butterfly.jpeg"
+                  ? "/topological-graph.jpg"
                   : project.slug === "cognitive-assessment"
-                  ? "/new.jpeg"
-                  : "/home.jpeg";
+                  ? "/cognitive-lens.jpg"
+                  : project.slug === "tvet-labour-radar"
+                  ? "/HH5V_XhXEAA3JfB.jpeg"
+                  : "/new.jpeg";
 
               return (
                 <ResearchRow
